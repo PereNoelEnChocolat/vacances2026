@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drôme-Ardèche — 23→30 août</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavande: #6C5B9B;
+    --lavande-deep: #4E3F79;
+    --tournesol: #E2A430;
+    --argile: #B5533C;
+    --sauge: #6E8F5C;
+    --sauge-deep: #4E6B3F;
+    --nuit: #2E2A46;
+    --papier: #F6F3FA;
+    --papier-warm: #FBF6EC;
+    --encre: #2A2536;
+    --encre-soft: #635C78;
+    --ligne: #E2DCEF;
+    --blanc: #FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--papier);
+    color:var(--encre);
+    font-family:'Public Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,243,250,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--ligne);
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto;
+    padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+  }
+  .nav-brand{
+    font-family:'Fraunces',serif; font-weight:600; font-size:18px;
+    color:var(--lavande-deep);
+    white-space:nowrap;
+  }
+  .nav-links{
+    display:flex; gap:4px; overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{
+    font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--encre-soft);
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:20px;
+    white-space:nowrap;
+    transition:background 0.2s, color 0.2s;
+  }
+  .nav-links a:hover{background:var(--lavande); color:white;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:64px 24px 0;
+    background:linear-gradient(180deg, #EFE9F7 0%, var(--papier) 78%);
+  }
+  .hero-inner{
+    max-width:1080px; margin:0 auto;
+    position:relative; z-index:2;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px; font-weight:600;
+    color:var(--argile);
+    letter-spacing:0.12em; text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--argile);}
+  .hero h1{
+    font-size:clamp(36px,5.6vw,60px);
+    line-height:1.06;
+    margin:0 0 20px;
+    color:var(--nuit);
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--lavande);
+  }
+  .hero p.lede{
+    font-size:17.5px; line-height:1.6; color:var(--encre-soft);
+    max-width:560px; margin:0 0 28px;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:12px;
+    margin-bottom:20px;
+  }
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--blanc);
+    border:1px solid var(--ligne);
+    padding:8px 16px; border-radius:100px;
+    font-size:13.5px; font-weight:600;
+    color:var(--nuit);
+  }
+  .pill svg{width:16px;height:16px; stroke:var(--lavande); flex-shrink:0;}
+
+  .photo-strip{
+    display:grid; grid-template-columns:1.3fr 1fr 1fr;
+    gap:14px;
+    margin:36px 0 0;
+  }
+  .photo-strip figure{margin:0; position:relative; border-radius:20px; overflow:hidden; background:var(--ligne);}
+  .photo-strip img{width:100%; height:210px; object-fit:cover; display:block;}
+  .photo-strip figcaption{
+    position:absolute; left:14px; bottom:12px;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:#fff;
+    background:rgba(46,42,70,0.55); padding:4px 10px; border-radius:100px;
+    backdrop-filter:blur(4px);
+  }
+  @media (max-width:720px){
+    .photo-strip{grid-template-columns:1fr; }
+    .photo-strip img{height:170px;}
+  }
+
+  /* ---------- CHARTE (manifeste bouffe) ---------- */
+  .charte{
+    max-width:1080px; margin:64px auto 0; padding:0 24px;
+    scroll-margin-top:90px;
+  }
+  .charte-card{
+    background:var(--sauge-deep);
+    background-image:radial-gradient(circle at 88% 15%, rgba(255,255,255,0.13), transparent 45%);
+    border-radius:28px; padding:38px;
+    color:#EAF1E4;
+  }
+  .charte-card .stamp{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.1em;
+    background:rgba(255,255,255,0.14); padding:5px 12px; border-radius:100px;
+    margin-bottom:16px;
+  }
+  .charte-card h2{color:#fff; margin:0 0 10px; font-size:clamp(24px,3.4vw,30px);}
+  .charte-card p.lead{margin:0 0 22px; max-width:600px; font-size:15px; line-height:1.65; color:#DCEAD3;}
+  .charte-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:14px;
+  }
+  .charte-item{
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:16px; padding:14px 16px;
+    font-size:13.5px; line-height:1.5;
+  }
+  .charte-item b{display:block; font-family:'Fraunces',serif; font-weight:600; font-size:14.5px; margin-bottom:3px; color:#fff;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .base-header{
+    max-width:1080px; margin:0 auto;
+    padding:80px 24px 0;
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  .base-header .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--lavande);
+    margin-bottom:10px; display:block;
+  }
+  .base-header h2{
+    font-size:clamp(28px,4vw,40px);
+    margin:0;
+  }
+  .base-header .lodging{
+    text-align:right;
+    font-size:14px; color:var(--encre-soft);
+    max-width:280px;
+  }
+  .base-header .lodging b{color:var(--nuit); font-family:'Fraunces',serif; font-size:16px; font-weight:600; display:block; margin-bottom:2px;}
+
+  .base-photo{
+    width:100%; height:200px; object-fit:cover;
+    border-radius:24px; margin:24px auto 0; display:block;
+  }
+  .base-photo-wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  .transition-band{
+    max-width:1080px; margin:56px auto 0; padding:0 24px;
+  }
+  .transition-card{
+    background:var(--nuit);
+    color:#EFE9F7;
+    border-radius:28px;
+    padding:36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .transition-card .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:12px;
+    text-transform:uppercase; letter-spacing:0.1em; color:var(--tournesol);
+    display:block; margin-bottom:10px;
+  }
+  .transition-card h2{color:#fff; font-size:clamp(24px,3.4vw,32px); margin:0 0 8px;}
+  .transition-card p{color:#C9C2DD; max-width:560px; margin:0; font-size:15px; line-height:1.6;}
+
+  /* ---------- DAY CARD ---------- */
+  .days{
+    max-width:1080px; margin:0 auto; padding:0 24px 20px;
+    display:flex; flex-direction:column; gap:28px;
+  }
+  .day{
+    background:var(--blanc);
+    border:1px solid var(--ligne);
+    border-radius:28px;
+    padding:32px;
+    scroll-margin-top:90px;
+  }
+  .day-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:20px; margin-bottom:10px; flex-wrap:wrap;
+  }
+  .day-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px; color:var(--encre-soft);
+    text-transform:uppercase; letter-spacing:0.08em;
+    margin-bottom:6px;
+  }
+  .day-title{
+    font-size:24px; margin:0; color:var(--nuit);
+  }
+  .day-icon{
+    width:52px; height:52px; border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .day-icon svg{width:26px; height:26px; stroke:white; fill:none;}
+
+  .bedtime{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600;
+    color:var(--lavande-deep); background:#EFEAF9;
+    padding:5px 12px; border-radius:100px;
+    margin-bottom:22px;
+  }
+  .bedtime svg{width:13px;height:13px; stroke:var(--lavande-deep);}
+  .bedtime.exception{color:var(--argile); background:#F7E9E4;}
+  .bedtime.exception svg{stroke:var(--argile);}
+
+  .blocks{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:16px;
+  }
+  .block{
+    border:1px solid var(--ligne); border-radius:18px; padding:18px;
+    background:var(--papier-warm);
+  }
+  .block.meal{
+    background:#F0F5EC; border-color:#DCE7D2;
+  }
+  .block-head{
+    display:flex; align-items:center; gap:10px; margin-bottom:10px;
+  }
+  .block-icon{
+    width:34px; height:34px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .block.meal .block-icon{background:var(--sauge);}
+  .block-icon svg{width:18px;height:18px; stroke:white; fill:none;}
+  .block-time{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600;
+    color:var(--encre-soft); text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .block-title{
+    font-weight:700; font-size:15px; color:var(--nuit); margin:0 0 6px;
+  }
+  .block p{
+    font-size:13.5px; line-height:1.55; color:var(--encre-soft); margin:0 0 8px;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:11.5px; font-weight:600; color:var(--lavande-deep);
+    background:#EFEAF9; padding:4px 10px; border-radius:100px;
+    margin:2px 4px 0 0;
+  }
+  .badge svg{width:12px;height:12px; stroke:var(--lavande-deep);}
+  .badge.tip{color:var(--argile); background:#F7E9E4;}
+  .badge.tip svg{stroke:var(--argile);}
+  .badge.eat{color:var(--sauge-deep); background:#E4EEDC;}
+  .badge.eat svg{stroke:var(--sauge-deep);}
+
+  .block-photo{
+    width:100%; height:140px; object-fit:cover;
+    border-radius:12px; margin-bottom:10px;
+  }
+
+  /* colour themes per day, applied via data-theme */
+  .day[data-theme="1"] .day-icon{background:var(--tournesol);}
+  .day[data-theme="2"] .day-icon{background:var(--argile);}
+  .day[data-theme="3"] .day-icon{background:var(--sauge);}
+  .day[data-theme="4"] .day-icon{background:var(--nuit);}
+  .day[data-theme="5"] .day-icon{background:var(--lavande);}
+  .day[data-theme="6"] .day-icon{background:var(--argile);}
+  .day[data-theme="7"] .day-icon{background:var(--tournesol);}
+  .day[data-theme="8"] .day-icon{background:var(--sauge);}
+  .day .block:not(.meal) .block-icon{background:var(--lavande);}
+  .day[data-theme="1"] .block:not(.meal) .block-icon{background:var(--tournesol);}
+  .day[data-theme="2"] .block:not(.meal) .block-icon{background:var(--argile);}
+  .day[data-theme="3"] .block:not(.meal) .block-icon{background:var(--sauge);}
+  .day[data-theme="4"] .block:not(.meal) .block-icon{background:var(--nuit);}
+  .day[data-theme="6"] .block:not(.meal) .block-icon{background:var(--argile);}
+  .day[data-theme="7"] .block:not(.meal) .block-icon{background:var(--tournesol);}
+  .day[data-theme="8"] .block:not(.meal) .block-icon{background:var(--sauge);}
+
+  /* return day */
+  .day-return{
+    display:flex; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .day-return .route-visual{flex:1; min-width:240px;}
+  .day-return .route-text{flex:1; min-width:240px;}
+  .route-line{
+    display:flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--nuit); font-weight:600;
+    margin-bottom:8px;
+  }
+  .route-line svg{width:16px;height:16px; stroke:var(--sauge); flex-shrink:0;}
+
+  /* ---------- CHECKLIST ---------- */
+  .checklist{
+    max-width:1080px; margin:70px auto 0; padding:0 24px;
+    scroll-margin-top:90px;
+  }
+  .checklist-card{
+    background:var(--lavande);
+    background-image:radial-gradient(circle at 85% 20%, rgba(255,255,255,0.14), transparent 45%);
+    border-radius:28px; padding:40px;
+    color:white;
+  }
+  .checklist-card h2{margin:0 0 6px; font-size:clamp(24px,3.4vw,30px);}
+  .checklist-card p.sub{color:#E5E0F5; margin:0 0 26px; font-size:14.5px;}
+  .checklist-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+  }
+  .check-item{
+    display:flex; gap:12px; align-items:flex-start;
+    background:rgba(255,255,255,0.09);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:16px; padding:14px 16px;
+    font-size:13.5px; line-height:1.5;
+  }
+  .check-item svg{width:18px;height:18px; stroke:var(--tournesol); flex-shrink:0; margin-top:1px;}
+
+  footer{
+    max-width:1080px; margin:60px auto 0; padding:36px 24px 60px;
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:12px;
+    font-size:12.5px; color:var(--encre-soft);
+    border-top:1px solid var(--ligne);
+  }
+  footer .fam{
+    font-family:'Fraunces',serif; font-style:italic; color:var(--lavande-deep); font-size:14px;
+  }
+
+  @media (max-width:640px){
+    .nav-brand{display:none;}
+    .base-header{padding-top:56px;}
+    .base-header .lodging{text-align:left;}
+    .day{padding:22px;}
+    .transition-card{padding:26px;}
+    .charte-card{padding:26px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">David & Sarra — 23→30 août</div>
+    <div class="nav-links">
+      <a href="#hero">Aperçu</a>
+      <a href="#base-nord">Base Nord</a>
+      <a href="#j4">Transition</a>
+      <a href="#base-sud">Base Sud</a>
+      <a href="#retour">Retour</a>
+      <a href="#checklist">À réserver</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Drôme · Ardèche · 8 jours en famille</span>
+    <h1>Deux bases, <br><em>deux bébés d'amour</em>,<br>et des grosses siestes sa mère.</h1>
+    <p class="lede">Du 23 au 30 août, David, Sarra et les petits (6 mois et 2 ans et demi) explorent la Drôme et l'Ardèche entre matinées fraîches, siestes sacrées, et une nouvelle règle du jeu : on mange bon local — et on est couchés à 20h précises (sauf une fois, on ne va pas se mentir).</p>
+    <div class="hero-meta">
+      <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg>Dim 23 → Dim 30 août</span>
+      <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-4 3-6 7-6s7 2 7 6"></path></svg>David, Sarra + 2 enfants</span>
+      <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21c2-8 4-12 8-12s6 4 8 12M12 9V3"></path></svg>100% Macron explosion</span>
+    </div>
+  </div>
+  <div class="hero-inner">
+    <div class="photo-strip">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/0020_Pont_d'Arc_-_Ard%C3%A8che.jpg" alt="Le Pont d'Arc, gorges de l'Ardèche" loading="lazy"><figcaption>Pont d'Arc, gorges de l'Ardèche</figcaption></figure>
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Champ_lavande_Vallon_Pont_dArc.jpg" alt="Champ de lavande" loading="lazy"><figcaption>Champs de lavande</figcaption></figure>
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/151016_Tournon%E2%80%93St.-Jean-de-Muzols_IMG_6396.JPG" alt="Le train à vapeur du Mastrou en Ardèche" loading="lazy"><figcaption>Le Mastrou</figcaption></figure>
+    </div>
+  </div>
+</header>
+
+<!-- ================= BASE NORD ================= -->
+<section class="base-header" id="base-nord">
+  <div>
+    <span class="tag">Première partie · 23 → 26 août</span>
+    <h2>La Base Nord</h2>
+  </div>
+  <div class="lodging">
+    <b>Gîtes de Mirabel</b>
+    Charmes-sur-Rhône — pour prendre ses marques et explorer la Drôme et le nord de l'Ardèche.
+  </div>
+</section>
+
+<div class="days">
+
+  <!-- JOUR 1 -->
+  <article class="day" data-theme="1" id="j1">
+    <div class="day-top">
+      <div>
+        <div class="day-date mono">Dimanche 23 août — Jour 1</div>
+        <h3 class="day-title">Arrivée & immersion</h3>
+      </div>
+      <div class="day-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17V9l4-3h6l4 3v8M9 17v-4h6v4"></path><circle cx="7.5" cy="19" r="1.2"></circle><circle cx="16.5" cy="19" r="1.2"></circle></svg>
+      </div>
+    </div>
+    <span class="bedtime"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>Opération dodo : coucher 20h00</span>
+    <div class="blocks">
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="9" rx="2"></rect><path d="M8 8V6a4 4 0 018 0v2M9 17v2M15 17v2"></path></svg></div><span class="block-time">Matin · 9h00</span></div>
+        <p class="block-title">Jardin des Trains Ardéchois, Soyons</p>
+        <p>Maquettes de trains au milieu des jardins. Visite bouclée vers 11h30, largement le temps de tout admirer sans courir.</p>
+      </div>
+      <div class="block meal">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a2 2 0 002 2v9M7 3v6M9 3v6M11 3v6M17 3c-2 0-3 2-3 5s1 5 3 5v9"></path></svg></div><span class="block-time">Midi · Le Carré d'Aleth</span></div>
+        <p class="block-title">Charmes-sur-Rhône</p>
+        <p>Très pratique, sur la route du gîte. Produits bruts et de saison pour un repas sain avant de coucher les enfants.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path></svg>0 détour</span>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c0 4 3 4 3 8M19 8c0-4-3-4-3 8M3 12h18"></path></svg></div><span class="block-time">Après-midi · 14h30</span></div>
+        <p class="block-title">Sieste, puis Labyrinthe Végétal Labyléo</p>
+        <p>Directement à Charmes-sur-Rhône, zéro route. Parcours ludique et grand air dans le maïs en fin de journée.</p>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-10h10l3 10M8 10V6a4 4 0 018 0v4"></path></svg></div><span class="block-time">Soir</span></div>
+        <p class="block-title">Balade dans le vieux village</p>
+        <p>Charmes-sur-Rhône à la fraîche, puis dîner tranquille et rapide préparé au gîte pour garantir le coucher à 20h.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- JOUR 2 -->
+  <article class="day" data-theme="2" id="j2">
+    <div class="day-top">
+      <div>
+        <div class="day-date mono">Lundi 24 août — Jour 2</div>
+        <h3 class="day-title">Vapeur & préhistoire</h3>
+      </div>
+      <div class="day-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="13" height="8" rx="2"></rect><circle cx="8" cy="19" r="1.3"></circle><circle cx="14" cy="19" r="1.3"></circle><path d="M17 12h3l1 3v2h-4M4 12H2M7 6c1 1 2 2 2 3"></path></svg>
+      </div>
+    </div>
+    <span class="bedtime"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>Opération dodo : coucher 20h15</span>
+    <div class="blocks">
+      <div class="block">
+        <img class="block-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/151015_D%C3%A9p%C3%B4t_de_Tournon_IMG_6358.JPG" alt="Le train à vapeur du Mastrou, Ardèche" loading="lazy">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="13" height="8" rx="2"></rect><circle cx="8" cy="19" r="1.3"></circle><circle cx="14" cy="19" r="1.3"></circle><path d="M17 12h3l1 3v2h-4"></path></svg></div><span class="block-time">Matin · 9h15</span></div>
+        <p class="block-title">Le Mastrou, train à vapeur de l'Ardèche</p>
+        <p>Traversée historique des Gorges du Doux. Retour à quai à 12h00 pile.</p>
+      </div>
+      <div class="block meal">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a2 2 0 002 2v9M7 3v6M9 3v6M11 3v6M17 3c-2 0-3 2-3 5s1 5 3 5v9"></path></svg></div><span class="block-time">Midi · Brasserie traditionnelle</span></div>
+        <p class="block-title">Tournon-sur-Rhône</p>
+        <p>Déjeuner rapide avant le retour au gîte — on privilégie les salades composées ou un plat du jour simple.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path></svg>simple & rapide</span>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21c2-6 4-8 8-8s6 2 8 8M8 13a4 4 0 118 0"></path></svg></div><span class="block-time">Après-midi · 14h30</span></div>
+        <p class="block-title">Sieste, puis Grottes de Soyons</p>
+        <p>Visite fraîche sous terre après la sieste — de quoi se refroidir avant l'excursion du soir.</p>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-10h10l3 10M8 10V6a4 4 0 018 0v4"></path></svg></div><span class="block-time">Soir · L'Oiseau sur sa branche</span></div>
+        <p class="block-title">Centre historique de Valence</p>
+        <p>Dîner très tôt (19h00) dans une cantine certifiée bio, 100% fait maison, flexitarienne et saine. À 15 min du gîte, retour prévu vers 20h15.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>bio · maison</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- JOUR 3 -->
+  <article class="day" data-theme="3" id="j3">
+    <div class="day-top">
+      <div>
+        <div class="day-date mono">Mardi 25 août — Jour 3</div>
+        <h3 class="day-title">Magie & monde aquatique</h3>
+      </div>
+      <div class="day-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l3 5H9zM7 8l3 6H4zM17 8l3 6h-6z"></path><path d="M12 21v-8M9 21h6"></path></svg>
+      </div>
+    </div>
+    <span class="bedtime"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>Opération dodo : coucher 20h30</span>
+    <div class="blocks">
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l3 5H9zM7 8l3 6H4zM17 8l3 6h-6zM12 21v-8"></path></svg></div><span class="block-time">Matin · 9h15</span></div>
+        <p class="block-title">Le Monde Merveilleux des Lutins, Hostun</p>
+        <p>Balade magique à la fraîche, cabanes de fées et jeux en bois. Fin vers 11h30.</p>
+      </div>
+      <div class="block meal">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a2 2 0 002 2v9M7 3v6M9 3v6M11 3v6M17 3c-2 0-3 2-3 5s1 5 3 5v9"></path></svg></div><span class="block-time">Midi · Boulangerie artisanale</span></div>
+        <p class="block-title">En chemin, vers Bourg-de-Péage</p>
+        <p>Pause déjeuner sur le trajet du retour : tartes salées maison, quiches sans additifs, à manger sans se presser.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path></svg>sur le trajet</span>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-3 6 3 9 0s6-3 9 0M3 17c3-3 6 3 9 0s6-3 9 0"></path><circle cx="9" cy="9" r="1.5"></circle></svg></div><span class="block-time">Après-midi · 14h00</span></div>
+        <p class="block-title">Sieste, puis Aquarium des Tropiques, Allex</p>
+        <p>Option 100% climatisée et poussette-friendly, au milieu des poissons colorés.</p>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-10h10l3 10M8 10V6a4 4 0 018 0v4"></path></svg></div><span class="block-time">Soir · La Part du Colibri</span></div>
+        <p class="block-title">Centre médiéval de Crest</p>
+        <p>Dîner à 19h00 dans un café associatif engagé : assiettes 100% bio, locales et sans artifices, très adaptées aux enfants. Retour au gîte à 20h30.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>bio · associatif</span>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- ================= TRANSITION ================= -->
+<div class="transition-band" id="j4">
+  <div class="transition-card">
+    <span class="tag">Mercredi 26 août — Jour 4</span>
+    <h2>Des bonbons à la forêt — cap au sud</h2>
+    <p>Check-out du premier gîte, un détour sucré, puis la route devient la sieste. Les enfants dorment bercés par la voiture pendant la descente vers Lapalud.</p>
+  </div>
+</div>
+
+<div class="days" style="margin-top:28px;">
+  <article class="day" data-theme="4">
+    <span class="bedtime"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>Dîner léger au gîte, coucher tôt</span>
+    <div class="blocks">
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"></rect><path d="M4 12h16M9 7v12M15 7v12"></path></svg></div><span class="block-time">Matin · 9h15</span></div>
+        <p class="block-title">Check-out, puis Palais des Bonbons et du Nougat</p>
+        <p>Montélimar. Grand espace couvert et climatisé — la seule entorse sucrée de la semaine, méritée.</p>
+      </div>
+      <div class="block meal">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a2 2 0 002 2v9M7 3v6M9 3v6M11 3v6M17 3c-2 0-3 2-3 5s1 5 3 5v9"></path></svg></div><span class="block-time">Midi · Le Bistrot des Paysans</span></div>
+        <p class="block-title">Montélimar</p>
+        <p>Une coopérative gérée par les agriculteurs eux-mêmes. Viandes et légumes tracés, zéro additif, cuisinés simplement.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>coopérative paysanne</span>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"></path></svg></div><span class="block-time">Après-midi · 14h00</span></div>
+        <p class="block-title">Sieste en voiture vers Lapalud</p>
+        <p>Installation au gîte La Chamade, puis Forêt des Jeux et Musée de la Lavande, à Saint-Remèze.</p>
+        <img class="block-photo" style="margin-top:10px;" src="https://commons.wikimedia.org/wiki/Special:FilePath/Champ_lavande_Vallon_Pont_dArc.jpg" alt="Champ de lavande en Ardèche" loading="lazy">
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21c2-8 4-12 8-12s6 4 8 12M12 9V3"></path></svg></div><span class="block-time">Soir</span></div>
+        <p class="block-title">Digestion du déménagement</p>
+        <p>Dîner léger au gîte pour digérer le changement de maison et se coucher tôt — journée déjà bien remplie.</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- ================= BASE SUD ================= -->
+<section class="base-header" id="base-sud">
+  <div>
+    <span class="tag">Seconde partie · 27 → 30 août</span>
+    <h2>La Base Sud</h2>
+  </div>
+  <div class="lodging">
+    <b>La Chamade</b>
+    Lapalud — les grands sites de l'Ardèche méridionale et la douceur provençale.
+  </div>
+</section>
+<div class="base-photo-wrap">
+  <img class="base-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/0031_Pont_d'Arc_-_Ard%C3%A8che.jpg" alt="Gorges de l'Ardèche, entre Vallon-Pont-d'Arc et Saint-Martin-d'Ardèche" loading="lazy">
+</div>
+
+<div class="days">
+
+  <!-- JOUR 5 -->
+  <article class="day" data-theme="5" id="j5">
+    <div class="day-top">
+      <div>
+        <div class="day-date mono">Jeudi 27 août — Jour 5</div>
+        <h3 class="day-title">Les incontournables</h3>
+      </div>
+      <div class="day-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l4-5 3 3 3-6 4 5 4-3v6H3z"></path><path d="M3 13v5h18v-5"></path></svg>
+      </div>
+    </div>
+    <span class="bedtime exception"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>La petite exception : coucher 20h45</span>
+    <div class="blocks">
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l3-5h12l3 5v6H3z"></path><path d="M7 12l1.5-3h7L17 12M9 18v-3M15 18v-3"></path></svg></div><span class="block-time">Matin · 9h15</span></div>
+        <p class="block-title">La Ferme aux Crocodiles, Pierrelatte</p>
+        <p>Serre tropicale plate et facile en poussette. Fin vers 11h30, avant les grosses chaleurs.</p>
+      </div>
+      <div class="block meal">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a2 2 0 002 2v9M7 3v6M9 3v6M11 3v6M17 3c-2 0-3 2-3 5s1 5 3 5v9"></path></svg></div><span class="block-time">Midi · La Maison du Goût</span></div>
+        <p class="block-title">Pierrelatte</p>
+        <p>Épicerie fine et restaurant : planches ou plats du jour d'artisans ultra-sélectionnés (charcuteries sans nitrites, fromages fermiers).</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>sans nitrites</span>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-8 4-12 8-12s6 4 8 12"></path><circle cx="12" cy="6" r="2"></circle></svg></div><span class="block-time">Après-midi · 14h00</span></div>
+        <p class="block-title">Sieste, puis Grotte Chauvet 2</p>
+        <p>Climatisation naturelle à 14°C — penser à réserver le créneau et à prendre une petite laine !</p>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21c2-8 4-12 8-12s6 4 8 12M12 9V3"></path></svg></div><span class="block-time">Soir · Le Jardin des Secrets</span></div>
+        <p class="block-title">Vieux village de Vallon-Pont-d'Arc</p>
+        <p>Dîner à 19h00 : cuissons douces, produits frais de la vallée. Retour de 30 min, coucher vers 20h45 — la petite exception de la semaine, on vit dangereusement.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>cuisson douce</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- JOUR 6 -->
+  <article class="day" data-theme="6" id="j6">
+    <div class="day-top">
+      <div>
+        <div class="day-date mono">Vendredi 28 août — Jour 6</div>
+        <h3 class="day-title">Les géants de la terre</h3>
+      </div>
+      <div class="day-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20c0-6 2-14 6-14s6 8 6 14"></path><circle cx="12" cy="6" r="1.6"></circle><path d="M12 6l3-2"></path></svg>
+      </div>
+    </div>
+    <span class="bedtime"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>Soirée calme, coucher à l'heure</span>
+    <div class="blocks">
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20c0-6 2-14 6-14s6 8 6 14"></path><circle cx="12" cy="6" r="1.6"></circle></svg></div><span class="block-time">Matin · 9h15</span></div>
+        <p class="block-title">La Ferme aux Autruches, Pierrelatte</p>
+        <p>Découverte des oiseaux géants et des poussins — balade très calme pour commencer. Fin vers 11h30.</p>
+      </div>
+      <div class="block meal">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a2 2 0 002 2v9M7 3v6M9 3v6M11 3v6M17 3c-2 0-3 2-3 5s1 5 3 5v9"></path></svg></div><span class="block-time">Midi · Bistrot de pays</span></div>
+        <p class="block-title">Bourg-Saint-Andéol ou Pierrelatte</p>
+        <p>Déjeuner privilégiant le fait-maison, sans se compliquer la vie.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path></svg>fait maison</span>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 3 3 4-8 5 14z"></path></svg></div><span class="block-time">Après-midi · 14h30</span></div>
+        <p class="block-title">Sieste, puis dinosaures & chevaliers</p>
+        <p>Zoo des Dinosaures, Musée du Monde Souterrain et Maison des Chevaliers, à Bourg-Saint-Andéol. De quoi combiner rugissements et légendes médiévales.</p>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M6 19V9l6-5 6 5v10M10 19v-6h4v6"></path></svg></div><span class="block-time">Soir</span></div>
+        <p class="block-title">Retour au calme</p>
+        <p>Dîner maison au gîte, pour une soirée reposante — pas d'excursion, juste du calme.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- JOUR 7 -->
+  <article class="day" data-theme="7" id="j7">
+    <div class="day-top">
+      <div>
+        <div class="day-date mono">Samedi 29 août — Jour 7</div>
+        <h3 class="day-title">Miniatures & clôture nocturne</h3>
+      </div>
+      <div class="day-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11l4-3 4 3v9M12 20v-6l4-3 4 3v6"></path></svg>
+      </div>
+    </div>
+    <span class="bedtime"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>Opération dodo : coucher 20h00 tapantes</span>
+    <div class="blocks">
+      <div class="block">
+        <img class="block-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vue_d'ensemble_Ch%C3%A2teau_de_Grignan_et_coll%C3%A9giale_Saint-Sauveur.jpg" alt="Château de Grignan" loading="lazy">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11l4-3 4 3v9M12 20v-6l4-3 4 3v6"></path></svg></div><span class="block-time">Matin · 9h15</span></div>
+        <p class="block-title">Le Village Provençal Miniature, Grignan</p>
+        <p>Reconstitution géante de santons animés — féerique pour le grand.</p>
+      </div>
+      <div class="block meal">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a2 2 0 002 2v9M7 3v6M9 3v6M11 3v6M17 3c-2 0-3 2-3 5s1 5 3 5v9"></path></svg></div><span class="block-time">Midi · L'Eau à la Bouche</span></div>
+        <p class="block-title">Grignan</p>
+        <p>Petite table locale, cuisine du marché, produits bruts — avant de redescendre pour la sieste.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>cuisine du marché</span>
+      </div>
+      <div class="block">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"></rect><path d="M9 7V5a3 3 0 016 0v2"></path></svg></div><span class="block-time">Après-midi · 14h30</span></div>
+        <p class="block-title">Sieste et valises</p>
+        <p>En fin d'après-midi, départ pour Aiguèze, Pont-Saint-Esprit et Saint-Martin-d'Ardèche — le tour des beaux villages avant de clore le séjour.</p>
+      </div>
+      <div class="block">
+        <img class="block-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vue_sur_l'Ard%C3%A8che_%C3%A0_Saint-Martin-d'Ard%C3%A8che.JPG" alt="La rivière Ardèche à Saint-Martin-d'Ardèche" loading="lazy">
+        <div class="block-head"><div class="block-icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c3-4 15-4 18 0M6 15v3M18 15v3M9 6c0 2-2 3-2 5M15 6c0 2 2 3 2 5"></path></svg></div><span class="block-time">Soir · Marché nocturne</span></div>
+        <p class="block-title">Saint-Martin-d'Ardèche</p>
+        <p>Dîner très tôt directement sur les stands : crêpes bio, fromages, légumes locaux, à picorer en marchant, sans l'attente d'un restaurant classique. Retour au gîte à 20h00 tapantes.</p>
+        <span class="badge eat"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>ultra-frais, sur le pouce</span>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- ================= RETOUR ================= -->
+<div class="days" id="retour">
+  <article class="day day-return" data-theme="8">
+    <div class="route-visual">
+      <div class="day-date mono">Dimanche 30 août — Jour 8</div>
+      <h3 class="day-title" style="margin-bottom:18px;">Le retour</h3>
+      <div class="route-line"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>Matin — rangement et valises, tranquillement</div>
+      <div class="route-line"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h14l2 5v5H3z"></path><circle cx="7.5" cy="18" r="1.4"></circle><circle cx="16.5" cy="18" r="1.4"></circle></svg>12h00 pile — départ de Lapalud</div>
+      <div class="route-line"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M6 19V9l6-5 6 5v10M10 19v-6h4v6"></path></svg>Trajet direct, sieste intégrale des petits</div>
+      <div class="route-line"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22V12h6v10M4 9l8-6 8 6M4 9v11h4M20 9v11h-4"></path></svg>Arrivée en milieu d'après-midi</div>
+    </div>
+    <div class="route-text">
+      <p style="font-size:15px; line-height:1.7; color:var(--encre-soft);">Un rangement sans stress, un départ minuté à midi, et une sieste intégrale qui fait office de dernier chapitre du séjour. On rentre reposés — et sans avoir touché un seul produit ultra-transformé de la semaine. Ou presque.</p>
+    </div>
+  </article>
+</div>
+
+<!-- ================= CHECKLIST ================= -->
+<div class="checklist" id="checklist">
+  <div class="checklist-card">
+    <h2>Avant de partir</h2>
+    <p class="sub">Il ne reste plus qu'à réserver et à profiter du séjour.</p>
+    <div class="checklist-grid">
+      <div class="check-item"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>Réserver le créneau pour la Grotte Chauvet 2 (jeudi après-midi) — c'est le site le plus demandé du séjour.</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5 5 .5-4 3.5 1.5 5L12 13l-4.5 3 1.5-5-4-3.5L10 7z"></path></svg>Prévoir le porte-bébé pour les Grottes de Soyons et le Zoo des Dinosaures.</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20c0-6 3-9 6-9s6 3 6 9M9 6a3 3 0 106 0"></path></svg>Prendre une petite laine — la grotte Chauvet est à 14°C toute l'année.</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"></rect><path d="M9 7V5a3 3 0 016 0v2"></path></svg>Réserver les tables du soir (L'Oiseau sur sa branche, La Part du Colibri, Le Jardin des Secrets) — les bonnes adresses se remplissent vite en août.</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path></svg>Prévoir des petites pièces pour picorer sur le marché nocturne de Saint-Martin-d'Ardèche.</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"></path></svg>Accepter que le jeudi, on se couche à 20h45. La terre continuera de tourner.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Drôme-Ardèche · 23 → 30 août</div>
+  <div class="fam">David, Sarra & les petits</div>
+</footer>
+
+</body>
+</html>
