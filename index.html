@@ -16,17 +16,17 @@
   --ink-soft:   #6B6284;
   --line:       #DDD3EC;
 
-  --nuit:       #241A3D;    /* aubergine profond — le soir, le dodo */
+  --nuit:       #241A3D;   /* aubergine profond — le soir, le dodo */
   --nuit-2:     #362757;
   --lavande:    #7B69AB;
   --lavande-dp: #55437E;
   --lavande-lt: #ECE6F7;
-  --soleil:     #E7A233;    /* le midi, la chaleur */
+  --soleil:     #E7A233;   /* le midi, la chaleur */
   --soleil-lt:  #F7E7C6;
-  --olive:      #7F9155;    /* manger vrai, local */
+  --olive:      #7F9155;   /* manger vrai, local */
   --olive-dp:   #566A38;
   --olive-lt:   #E6EDDA;
-  --terre:      #B85B3C;    /* argile — accents rares, l'exception */
+  --terre:      #B85B3C;   /* argile — accents rares, l'exception */
   --terre-lt:   #F6E4DB;
 
   --shadow: 0 1px 2px rgba(36,26,61,.04), 0 12px 34px -18px rgba(36,26,61,.28);
@@ -203,7 +203,6 @@ h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-
 .moment.eat .m-ic{background:var(--olive);}
 .moment.eat{background:linear-gradient(90deg,transparent 60px, var(--paper-warm));border-radius:14px;}
 .moment.rest .m-ic{background:var(--soleil);}
-.moment.night .m-ic{background:var(--nuit);}
 .m-txt h4{font-family:'Newsreader',serif;font-weight:600;font-size:17px;color:var(--nuit);margin:1px 0 3px;line-height:1.2;}
 .m-txt .lieu{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--lavande-dp);letter-spacing:.02em;margin-bottom:6px;}
 .m-txt p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.5;}
@@ -218,6 +217,33 @@ h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-
 .tag.food{background:var(--olive-lt);color:var(--olive-dp);}
 .tag.note{background:var(--terre-lt);color:var(--terre);}
 .tag.cool{background:#E4EEF3;color:#3C6478;}
+
+/* Encadré restaurants */
+.resto-box{
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: var(--paper-warm);
+  border-radius: 10px;
+  border: 1px solid var(--soleil-lt);
+}
+.resto-box b.rb-title {
+  display: block;
+  font-size: 13px;
+  color: var(--terre);
+  margin-bottom: 6px;
+}
+.resto-box ul { margin: 0; padding: 0; list-style: none; }
+.resto-box ul li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.resto-box ul li::before {
+  content: "•"; color: var(--soleil); position: absolute; left: 0; font-weight: bold;
+}
 
 /* transition */
 .transition{
@@ -332,7 +358,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <div>
       <span class="eyebrow">Drôme &amp; Ardèche · 8 jours en famille</span>
       <h1>Deux bases,<br>deux <em>amours</em> en bas âge,<br>et des siestes <span class="sun">non&nbsp;négociables.</span></h1>
-      <p class="lede">Du 23 au 30 août, on explore la Drôme et l'Ardèche avec les petits (6 mois &amp; 2 ans et demi), au rythme d'une seule règle du jeu : matinées fraîches, siestes sacrées, on mange vrai — et dodo à 20 h. Sauf une fois. On ne va pas se mentir.</p>
+      <p class="lede">Du 23 au 30 août, on explore la Drôme et l'Ardèche avec les petits (6 mois &amp; 2 ans et demi), au rythme d'une seule règle du jeu : matinées fraîches, siestes sacrées, on mange vrai — et dodo à 20 h. Sauf quelques fois, les jours de grande sortie. On ne va pas se mentir.</p>
       <div class="meta">
         <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Dim 23 → Dim 30 août</span>
         <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg>4 à table, 2 en poussette</span>
@@ -340,7 +366,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
       </div>
     </div>
     <div>
-      <!-- Paysage signature : collines de lavande, soleil, cyprès -->
       <svg class="scene" viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Paysage de Provence au crépuscule">
         <defs>
           <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1">
@@ -354,16 +379,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           </linearGradient>
         </defs>
         <rect width="520" height="380" fill="url(#ciel)"/>
-        <!-- soleil -->
         <circle class="sun-drift" cx="386" cy="118" r="42" fill="#E7A233" opacity=".92"/>
         <circle cx="386" cy="118" r="58" fill="#E7A233" opacity=".16"/>
-        <!-- collines lointaines -->
         <path d="M0 214 C120 176 190 214 300 190 C390 170 460 200 520 186 L520 380 L0 380Z" fill="#9FA97B" opacity=".55"/>
         <path d="M0 244 C110 214 210 254 320 228 C410 206 470 236 520 224 L520 380 L0 380Z" fill="#7F9155" opacity=".8"/>
-        <!-- cyprès -->
         <path d="M96 236 C88 236 86 208 100 176 C114 208 112 236 104 236 Z" fill="#4E6234"/>
         <path d="M126 240 C120 240 118 220 128 196 C138 220 136 240 130 240 Z" fill="#566A38"/>
-        <!-- champ de lavande au premier plan -->
         <path d="M0 262 C160 244 360 300 520 268 L520 380 L0 380Z" fill="url(#champ)"/>
         <g stroke="#4A3A70" stroke-width="3" stroke-linecap="round" opacity=".55">
           <path d="M40 356 l10 -34"/><path d="M78 360 l10 -34"/><path d="M116 356 l10 -34"/>
@@ -381,7 +402,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     </div>
   </div>
 
-  <!-- L'ARC DU JOUR -->
   <section class="wrap rythme" id="rythme">
     <div class="rythme-card reveal">
       <span class="eyebrow">La colonne vertébrale du séjour</span>
@@ -395,16 +415,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <stop offset="1" stop-color="#241A3D"/>
           </linearGradient>
         </defs>
-        <!-- ligne d'horizon -->
         <line x1="20" y1="150" x2="920" y2="150" stroke="#DDD3EC" stroke-width="1.5"/>
-        <!-- l'arc -->
         <path d="M40 150 C 200 20, 740 20, 900 150" fill="none" stroke="url(#arcgrad)" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
-        <!-- soleil qui monte -->
         <circle cx="470" cy="38" r="17" fill="#E7A233"/>
         <circle cx="470" cy="38" r="26" fill="#E7A233" opacity=".18"/>
-        <!-- lune qui se pose -->
         <path d="M900 150 a13 13 0 1 1 -9 -22 a10 10 0 0 0 9 22Z" fill="#241A3D"/>
-        <!-- stations -->
+        
         <g font-family="DM Mono, monospace" font-size="12" text-anchor="middle">
           <!-- Matin -->
           <circle cx="150" cy="96" r="6" fill="#7B69AB"/>
@@ -412,12 +428,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <text x="150" y="192" fill="#6B6284">Sortie fraîche</text>
           <!-- Midi -->
           <circle cx="345" cy="47" r="6" fill="#E7A233"/>
-          <text x="345" y="176" fill="#221B33" font-weight="500">12 h 30</text>
+          <text x="345" y="176" fill="#221B33" font-weight="500">12 h 00</text>
           <text x="345" y="192" fill="#6B6284">Déjeuner vrai</text>
           <!-- Sieste -->
           <circle cx="540" cy="47" r="6" fill="#7F9155"/>
-          <text x="540" y="176" fill="#221B33" font-weight="500">14 h</text>
-          <text x="540" y="192" fill="#6B6284">Sieste sacrée</text>
+          <text x="540" y="176" fill="#221B33" font-weight="500">12 h 30 / 13 h</text>
+          <text x="540" y="192" fill="#6B6284">Sieste (jusqu'à 15h)</text>
           <!-- Dîner -->
           <circle cx="735" cy="96" r="6" fill="#B85B3C"/>
           <text x="735" y="176" fill="#221B33" font-weight="500">19 h</text>
@@ -430,7 +446,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
       </svg>
     </div>
 
-    <!-- Les principes -->
     <div class="regles">
       <div class="regle reveal">
         <span class="n">01</span>
@@ -442,7 +457,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
         <span class="n">02</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-8 4-11 8-11s6 3 8 11M12 9V3"/></svg></div>
         <b>Sieste sacrée</b>
-        <p>Rien ne se planifie entre 13 h et 15 h. C'est comme ça.</p>
+        <p>Rien ne se planifie entre 12 h 30 et 15 h — sauf si elle se fait au fil d'une balade.</p>
       </div>
       <div class="regle reveal">
         <span class="n">03</span>
@@ -454,7 +469,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
         <span class="n">04</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></div>
         <b>Dodo à 20 h</b>
-        <p>Une religion familiale. Une seule entorse, le jeudi soir.</p>
+        <p>Une religion familiale, avec quelques entorses assumées les jours de grande sortie.</p>
       </div>
     </div>
   </section>
@@ -475,7 +490,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
   </div>
 
   <div class="days">
-
     <!-- JOUR 1 -->
     <article class="day reveal" id="j1">
       <div class="day-aside">
@@ -484,53 +498,78 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="num serif">1</div>
           <div class="date">23 août</div>
         </div>
-        <div class="titre">Arrivée &amp; premières marques</div>
-        <div class="dodo"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 00<small>opération dodo</small></div>
+        <div class="titre">Route &amp; arrivée en douceur</div>
+        <div class="charge"><svg class="bars" viewBox="0 0 24 24" stroke-linecap="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>Jour de route</div>
+        <div class="dodo"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 15<small>premier dodo, un peu plus tard</small></div>
       </div>
       <div class="day-main">
         <div class="moment">
-          <div class="when"><b>Matin</b>9 h 00</div>
+          <div class="when"><b>Matin</b>tôt</div>
           <div class="moment-body">
-            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="13" height="8" rx="2"/><circle cx="8" cy="19" r="1.3"/><circle cx="14" cy="19" r="1.3"/><path d="M17 12h3l1 3v2h-4"/></svg></div>
+            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"/></svg></div>
             <div class="m-txt">
-              <h4>Jardin des Trains Ardéchois</h4>
-              <div class="lieu">Soyons</div>
-              <p>Maquettes de trains au milieu des jardins, pépère. Bouclé vers 11 h 30, tout le temps d'admirer sans courir.</p>
+              <h4>Départ, cap sur l'Ardèche</h4>
+              <div class="lieu">Direction Charmes-sur-Rhône</div>
+              <p>On part sans se presser, avec des pauses aussi souvent que les petits le demandent.</p>
             </div>
           </div>
         </div>
         <div class="moment eat">
-          <div class="when"><b>Midi</b>12 h 30</div>
+          <div class="when"><b>Midi</b>en chemin</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>Le Carré d'Aleth</h4>
-              <div class="lieu">Charmes-sur-Rhône</div>
-              <p>Sur la route du gîte, produits bruts et de saison — parfait pour un premier repas sain avant le coucher des petits.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18"/></svg>0 détour</span></div>
+              <h4>Pique-nique ou halte gourmande</h4>
+              <div class="lieu">Sur la route, selon l'avancée</div>
+              <p>Un déjeuner simple sur une aire ombragée ou chez un producteur de bord de route.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Nos options en route :</b>
+                <ul>
+                   <li><b>L'Auberge de la Valloire</b> (sortie autoroute) — simple et convivial.</li>
+                   <li><b>La Guinguette du Rhône</b> — pour une pause fraîcheur au bord de l'eau.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="moment rest">
-          <div class="when"><b>Après-midi</b>14 h 30</div>
+          <div class="when"><b>Après-midi</b>12 h 30</div>
           <div class="moment-body">
-            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-8 4-11 8-11s6 3 8 11M12 9V3"/></svg></div>
+            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste, puis Labyrinthe Labyléo</h4>
-              <div class="lieu">Charmes-sur-Rhône</div>
-              <p>Zéro route : le labyrinthe de maïs est sur place. Parcours ludique et grand air en fin de journée, quand ça se rafraîchit.</p>
-              <div class="tags"><span class="tag"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18"/></svg>sur place</span></div>
+              <h4>Sieste en voiture (jusqu'à 15 h)</h4>
+              <div class="lieu">Vers Charmes-sur-Rhône</div>
+              <p>Les petits dorment pendant que la route défile : la sieste sacrée voyage avec nous aujourd'hui.</p>
+              <div class="tags"><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>sieste mobile</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="moment">
+          <div class="when"><b>Fin d'aprèm</b>16 h 00</div>
+          <div class="moment-body">
+            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+            <div class="m-txt">
+              <h4>Premiers pas à Charmes-sur-Rhône</h4>
+              <p>Le temps de se dégourdir les jambes avant le check-in : balade dans le vieux village.</p>
             </div>
           </div>
         </div>
         <div class="moment night">
-          <div class="when"><b>Soir</b>19 h</div>
+          <div class="when"><b>Soir</b>18 h 00</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
-              <h4>Dîner au gîte &amp; vieux village</h4>
+              <h4>Check-in &amp; dîner tranquille</h4>
               <div class="lieu">Charmes-sur-Rhône</div>
-              <p>Petite balade à la fraîche, puis dîner simple préparé au gîte pour installer les valises et sécuriser le coucher à 20 h.</p>
+              <p>Installation à 18 h pile, puis un dîner simple pris sur place pour ranger les valises.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Où dîner autour du gîte :</b>
+                <ul>
+                   <li><b>Le Carré d'Aleth</b> (Charmes) — belle carte locale.</li>
+                   <li><b>L'Auberge de la Tour</b> (Soyons) — à 10 min.</li>
+                   <li><b>Pizzeria Chez Dume</b> — pour de très bonnes pizzas à emporter au gîte.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -545,55 +584,77 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="num serif">2</div>
           <div class="date">24 août</div>
         </div>
-        <div class="titre">Vapeur &amp; fraîcheur souterraine</div>
-        <div class="dodo"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 15<small>opération dodo</small></div>
+        <div class="titre">Le Mastrou, vapeur jusqu'à Lamastre</div>
+        <div class="charge"><svg class="bars" viewBox="0 0 24 24" stroke-linecap="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>Journée chargée</div>
+        <div class="dodo"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 15<small>après les rails</small></div>
       </div>
       <div class="day-main">
         <div class="moment">
-          <div class="when"><b>Matin</b>9 h 15</div>
+          <div class="when"><b>Matin</b>9 h 00</div>
+          <div class="moment-body">
+            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
+            <div class="m-txt">
+              <h4>Maison Pascalis, pour la route</h4>
+              <div class="lieu">Tain-l'Hermitage</div>
+              <p>Petit détour boulanger avant d'embarquer : pogne de Romans et Suisse à l'orange confite.</p>
+            </div>
+          </div>
+        </div>
+        <div class="moment">
+          <div class="when"><b>Matin</b>9 h 45</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="13" height="8" rx="2"/><circle cx="8" cy="19" r="1.3"/><circle cx="14" cy="19" r="1.3"/><path d="M17 12h3l1 3v2h-4M7 6c1 1 2 2 2 3"/></svg></div>
             <div class="m-txt">
-              <h4>Le Mastrou, train à vapeur</h4>
-              <div class="lieu">Départ Tournon-sur-Rhône</div>
-              <p>Traversée historique des Gorges du Doux au fil de l'eau. Retour à quai vers midi.</p>
-              <div class="tags"><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".6" fill="currentColor"/></svg>billets à réserver</span></div>
+              <h4>Le Mastrou, départ</h4>
+              <div class="lieu">Gare de Tournon-sur-Rhône</div>
+              <p>Voyage à la journée en train à vapeur, à travers les Gorges du Doux.</p>
             </div>
           </div>
         </div>
         <div class="moment eat">
-          <div class="when"><b>Midi</b>12 h 30</div>
+          <div class="when"><b>Midi</b>11 h 30</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>Brasserie de bord de Rhône</h4>
-              <div class="lieu">Tournon-sur-Rhône</div>
-              <p>Salade composée ou plat du jour, vite avalé avant de rentrer pour la sieste.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18"/></svg>simple &amp; rapide</span></div>
+              <h4>Déjeuner à Lamastre</h4>
+              <div class="lieu">Lamastre</div>
+              <p>Arrivée en gare vers 11h30, l'heure parfaite pour déjeuner tôt avant la sieste.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Nos recommandations à Lamastre :</b>
+                <ul>
+                   <li><b>Restaurant de la Gare</b> — très pratique à la descente du Mastrou.</li>
+                   <li><b>La Mère Balle</b> — bistrot de pays, cuisine simple et généreuse.</li>
+                   <li><b>Le Châtaignier</b> — spécialités ardéchoises.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="moment rest">
-          <div class="when"><b>Après-midi</b>14 h 30</div>
+          <div class="when"><b>Après-midi</b>13 h 00</div>
           <div class="moment-body">
-            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-6 4-8 8-8s6 2 8 8M8 12a4 4 0 118 0"/></svg></div>
+            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="13" height="8" rx="2"/><circle cx="8" cy="19" r="1.3"/><circle cx="14" cy="19" r="1.3"/><path d="M17 12h3l1 3v2h-4M7 6c1 1 2 2 2 3"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste, puis Grottes de Soyons</h4>
-              <div class="lieu">Soyons</div>
-              <p>La visite parfaite pour la canicule : fraîcheur naturelle sous terre juste après la sieste.</p>
-              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>au frais</span><span class="tag"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M9 21v-6l-2-2 3-3h4l3 3-2 2v6"/></svg>porte-bébé</span></div>
+              <h4>Sieste douce, puis train du retour (15h)</h4>
+              <div class="lieu">Lamastre → Tournon</div>
+              <p>De 13h à 15h, sieste en poussette à l'ombre dans le village, puis on embarque à 15h pour le retour en train (où les petits finiront bercés).</p>
             </div>
           </div>
         </div>
         <div class="moment night">
-          <div class="when"><b>Soir</b>19 h</div>
+          <div class="when"><b>Soir</b>17 h 30</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
-              <h4>L'Oiseau sur sa branche</h4>
-              <div class="lieu">Centre historique de Valence · à 15 min</div>
-              <p>Cantine bio, 100 % maison et flexitarienne. Dîner tôt, retour au gîte vers 20 h 15.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6 6.5.5-5 4 1.5 6.5L12 15.5 5 19l1.5-6.5-5-4 6.5-.5z"/></svg>bio · maison</span></div>
+              <h4>Retour, dîner léger</h4>
+              <p>On rentre tranquillement pour un dîner à la maison et un coucher presque normal.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Envie d'une table à Tournon avant de rentrer ?</b>
+                <ul>
+                   <li><b>Le Chaudron</b> (Tournon) — très bonne adresse.</li>
+                   <li><b>Le Farfadet</b> (Tournon) — crêperie si les enfants veulent du réconfort.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -608,54 +669,65 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="num serif">3</div>
           <div class="date">25 août</div>
         </div>
-        <div class="titre">Lutins &amp; monde aquatique</div>
-        <div class="dodo"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 30<small>opération dodo</small></div>
+        <div class="titre">Sur la piste du Safari de Peaugres</div>
+        <div class="charge"><svg class="bars" viewBox="0 0 24 24" stroke-linecap="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>Journée chargée</div>
+        <div class="dodo exc"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 30<small>grande journée au parc</small></div>
       </div>
       <div class="day-main">
         <div class="moment">
-          <div class="when"><b>Matin</b>9 h 15</div>
+          <div class="when"><b>Matin</b>8 h 45</div>
           <div class="moment-body">
-            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l3 5H9zM7 8l3 6H4zM17 8l3 6h-6zM12 21v-8"/></svg></div>
+            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="14" r="4"/><circle cx="16" cy="14" r="4"/><path d="M12 10V7M9 7h6"/></svg></div>
             <div class="m-txt">
-              <h4>Le Monde Merveilleux des Lutins</h4>
-              <div class="lieu">Hostun · ~35 min</div>
-              <p>Balade magique à la fraîche : cabanes de fées et jeux en bois. Fin vers 11 h 30.</p>
+              <h4>Départ pour Peaugres, circuit voiture</h4>
+              <div class="lieu">Peaugres</div>
+              <p>On garde la voiture pour la première partie (animaux actifs, l'air est frais) : plaine africaine et forêt nord-américaine.</p>
             </div>
           </div>
         </div>
         <div class="moment eat">
-          <div class="when"><b>Midi</b>en chemin</div>
+          <div class="when"><b>Midi</b>12 h 00</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>Boulangerie artisanale</h4>
-              <div class="lieu">Vers Bourg-de-Péage</div>
-              <p>Sur le trajet du retour : tartes salées et quiches maison, à manger sans se presser.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18"/></svg>sur le trajet</span></div>
+              <h4>Déjeuner sur le parc</h4>
+              <p>Pas besoin de sortir du site pour déjeuner tranquillement.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Comment gérer le repas :</b>
+                <ul>
+                   <li><b>Snack / Restauration du Safari</b> — pratique pour ne pas perdre de temps.</li>
+                   <li><b>Auberge du Lac</b> (Peaugres) — à l'extérieur si on a besoin de calme.</li>
+                   <li><b>Boulangerie de Peaugres</b> — y passer le matin pour se faire un super pique-nique sous les arbres du parc.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="moment rest">
-          <div class="when"><b>Après-midi</b>14 h</div>
+          <div class="when"><b>Après-midi</b>12 h 30</div>
           <div class="moment-body">
-            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-3 6 3 9 0s6-3 9 0M3 17c3-3 6 3 9 0s6-3 9 0"/><circle cx="9" cy="9" r="1.4"/></svg></div>
+            <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="1.6"/><circle cx="15" cy="7" r="1.6"/><circle cx="6" cy="11" r="1.6"/><circle cx="18" cy="11" r="1.6"/><path d="M12 12c-3 0-5 2-5 4.5S9 21 12 21s5-2 5-4.5S15 12 12 12z"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste, puis Aquarium des Tropiques</h4>
-              <div class="lieu">Allex</div>
-              <p>L'option 100 % climatisée et poussette-friendly, au milieu des poissons colorés.</p>
-              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>climatisé</span></div>
+              <h4>Sieste (jusqu'à 15h), puis circuit à pied</h4>
+              <div class="lieu">Safari de Peaugres</div>
+              <p>La sieste se fait dans la poussette (ou porte-bébé) à l'ombre. Ensuite, découverte à pied du tunnel de verre (fauves) et de l'espace des singes.</p>
             </div>
           </div>
         </div>
         <div class="moment night">
-          <div class="when"><b>Soir</b>19 h</div>
+          <div class="when"><b>Soir</b>17 h 15</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
-              <h4>La Part du Colibri</h4>
-              <div class="lieu">Centre médiéval de Crest</div>
-              <p>Café associatif engagé, assiettes 100 % bio et locales, très adapté aux enfants. Retour au gîte vers 20 h 30.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6 6.5.5-5 4 1.5 6.5L12 15.5 5 19l1.5-6.5-5-4 6.5-.5z"/></svg>bio · associatif</span></div>
+              <h4>Retour au gîte</h4>
+              <p>Une grande journée dehors : on dîne et on se couche un peu plus tard.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Bonnes adresses au retour :</b>
+                <ul>
+                   <li><b>Restaurant Le Terminus</b> (Cruas) — cuisine régionale travaillée.</li>
+                   <li><b>L'Olivier</b> (Saint-Georges-les-Bains) — sur le trajet.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -668,8 +740,8 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
 <section class="wrap" id="transition" style="margin-top:22px;">
   <div class="transition reveal">
     <span class="eyebrow">Mercredi 26 · Jour 4</span>
-    <h2 class="serif">Des bonbons à la lavande — cap au sud</h2>
-    <p>Check-out du premier gîte, une entorse sucrée bien méritée, un déjeuner paysan, puis la route qui devient la sieste. On descend tranquillement vers Lapalud et on s'installe sans se presser : la journée de déménagement se fait à moitié endormi.</p>
+    <h2 class="serif">Des bonbons aux profondeurs — cap au sud</h2>
+    <p>Check-out du premier gîte, une entorse sucrée bien méritée, un déjeuner paysan, puis la route qui devient la sieste. On descend vers Lapalud et on boucle la journée dans une spectaculaire forêt de dinosaures à l'Aven de Marzal.</p>
     <div class="stops">
       <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l7-7 7 7v9H5z"/><path d="M9 20v-6h6v6"/></svg>Check-out gîtes de Mirabel</span>
       <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 4 4 .5-3 3 .8 4.2L12 12l-3.8 2.7L9 10.5l-3-3 4-.5z"/></svg>Palais des Bonbons, Montélimar</span>
@@ -696,34 +768,38 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M4 12h16M9 7v12M15 7v12"/></svg></div>
             <div class="m-txt">
-              <h4>Check-out, puis Palais des Bonbons et du Nougat</h4>
+              <h4>Check-out &amp; Palais des Bonbons</h4>
               <div class="lieu">Montélimar</div>
-              <p>Grand espace couvert et climatisé — la seule entorse sucrée de la semaine, et elle est méritée.</p>
-              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>climatisé</span></div>
+              <p>Espace climatisé — la seule entorse sucrée de la semaine, et elle est méritée.</p>
             </div>
           </div>
         </div>
         <div class="moment eat">
-          <div class="when"><b>Midi</b>12 h 30</div>
+          <div class="when"><b>Midi</b>12 h 00</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>Le Bistrot des Paysans</h4>
+              <h4>Déjeuner autour de Montélimar</h4>
               <div class="lieu">Montélimar</div>
-              <p>Coopérative gérée par les agriculteurs eux-mêmes : viandes et légumes tracés, zéro additif, cuisinés simplement.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6 6.5.5-5 4 1.5 6.5L12 15.5 5 19l1.5-6.5-5-4 6.5-.5z"/></svg>coopérative paysanne</span></div>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Tables montiliennes :</b>
+                <ul>
+                   <li><b>Le Bistrot des Paysans</b> — viandes et légumes tracés en direct de la coopérative.</li>
+                   <li><b>La Table de Margot</b> — plats familiaux de qualité.</li>
+                   <li><b>Le Petit Véran</b> — excellente adresse pour des produits frais.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="moment rest">
-          <div class="when"><b>Après-midi</b>14 h</div>
+          <div class="when"><b>Après-midi</b>12 h 30</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste en voiture, installation, puis Saint-Remèze</h4>
+              <h4>Sieste en voiture (jusqu'à 15h), installation, puis l'Aven de Marzal</h4>
               <div class="lieu">La Chamade, Lapalud → Saint-Remèze</div>
-              <p>Les petits dorment bercés par la descente. On pose les valises, puis cap sur la Forêt des Jeux et le Musée de la Lavande à Saint-Remèze pour finir la journée.</p>
-              <div class="tags"><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>~45 min depuis le gîte, après une matinée déjà bien remplie</span></div>
+              <p>Les petits dorment bercés par la descente. On pose les valises au gîte, puis cap sur l'Aven de Marzal : sa Forêt des Dinosaures grandeur nature va passionner le grand. <em>(Note : la grotte elle-même a de nombreuses marches, privilégiez le porte-bébé ou restez sur le parc surface).</em></p>
             </div>
           </div>
         </div>
@@ -732,9 +808,17 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
-              <h4>Dîner léger, coucher tôt</h4>
-              <div class="lieu">Au gîte</div>
-              <p>On digère le changement de maison avec un repas simple, et on se couche tôt pour attaquer l'Ardèche du sud en forme.</p>
+              <h4>Dîner de bienvenue à Lapalud</h4>
+              <div class="lieu">Autour du gîte (Lapalud)</div>
+              <p>On digère le changement de maison et on attaque l'Ardèche du sud en forme !</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ À tester à Lapalud :</b>
+                <ul>
+                   <li><b>Le Bouchon de Lapalud</b> — chaleureux, de bons classiques.</li>
+                   <li><b>Pizzeria La Cigale</b> — parfait si on veut faire au plus simple pour le grand.</li>
+                   <li><b>La Table de Marie</b> — cuisine soignée et jolie terrasse.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -758,7 +842,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
   </div>
 
   <div class="days">
-
     <!-- JOUR 5 -->
     <article class="day reveal" id="j5">
       <div class="day-aside">
@@ -767,7 +850,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="num serif">5</div>
           <div class="date">27 août</div>
         </div>
-        <div class="titre">Les incontournables</div>
+        <div class="titre">Les incontournables (sans forcer)</div>
         <div class="dodo exc"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 45<small>la fameuse exception</small></div>
       </div>
       <div class="day-main">
@@ -778,31 +861,37 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>La Ferme aux Crocodiles</h4>
               <div class="lieu">Pierrelatte · ~15 min</div>
-              <p>Serre tropicale plate et facile en poussette. Fin vers 11 h 30, avant les grosses chaleurs.</p>
+              <p>Serre tropicale plate et facile en poussette. Fin vers 11h30 avant les grosses chaleurs.</p>
             </div>
           </div>
         </div>
         <div class="moment eat">
-          <div class="when"><b>Midi</b>12 h 30</div>
+          <div class="when"><b>Midi</b>12 h 00</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>La Maison du Goût</h4>
-              <div class="lieu">Pierrelatte</div>
-              <p>Épicerie fine et table : planches et plats du jour d'artisans triés (charcuteries sans nitrites, fromages fermiers).</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6 6.5.5-5 4 1.5 6.5L12 15.5 5 19l1.5-6.5-5-4 6.5-.5z"/></svg>sans nitrites</span></div>
+              <h4>Pause gourmande à Pierrelatte</h4>
+              <p>On s'attable au calme avant la sieste.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Belles tables du coin :</b>
+                <ul>
+                   <li><b>La Maison du Goût</b> (Pierrelatte) — épicerie fine, planches artisans (sans nitrites).</li>
+                   <li><b>Le 17</b> — cuisine moderne et belle présentation.</li>
+                   <li><b>La Brasserie du Cours</b> — valeur sûre et efficace avec les enfants.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="moment rest">
-          <div class="when"><b>Après-midi</b>14 h</div>
+          <div class="when"><b>Après-midi</b>12 h 30</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-8 4-11 8-11s6 3 8 11"/><path d="M9 9c0-2 1-3 3-3s3 1 3 3"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste, puis Grotte Chauvet 2</h4>
+              <h4>Sieste (12h30-15h), puis Barque sous le Pont d'Arc</h4>
               <div class="lieu">Vallon-Pont-d'Arc · ~50 min</div>
-              <p>Le grand site du séjour : réplique grandeur nature, accessible en poussette, et 14 °C toute l'année. C'est le plus gros trajet de la semaine — d'où l'exception du soir.</p>
-              <div class="tags"><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".6" fill="currentColor"/></svg>réserver le créneau en ligne</span><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>14 °C · une petite laine</span></div>
+              <p>On laisse tomber la Grotte Chauvet pour éviter l'ennui des enfants. À la place : émerveillement sans effort avec <b>Les Bateliers de l'Ardèche</b> ! Une douce descente en barque guidée. Bébé est bercé par l'eau, le grand admire les falaises (et les canards), avec un passage grandiose sous le célèbre pont.</p>
+              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>zéro effort de marche</span></div>
             </div>
           </div>
         </div>
@@ -811,10 +900,16 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
-              <h4>Le Jardin des Secrets</h4>
-              <div class="lieu">Vieux village de Vallon-Pont-d'Arc</div>
-              <p>Cuissons douces, produits frais de la vallée. Retour de 50 min, coucher vers 20 h 45 — la seule fois de la semaine où l'on vit dangereusement.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6 6.5.5-5 4 1.5 6.5L12 15.5 5 19l1.5-6.5-5-4 6.5-.5z"/></svg>cuisson douce</span></div>
+              <h4>Dîner à Vallon-Pont-d'Arc</h4>
+              <p>On mange sur place, pour compenser les 50 minutes de retour au gîte ensuite.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Nos recommandations à Vallon :</b>
+                <ul>
+                   <li><b>Le Jardin des Secrets</b> — cuissons douces, cour intérieure paisible.</li>
+                   <li><b>Le Belvédère</b> — vue imprenable sur les gorges si on s'éloigne un peu.</li>
+                   <li><b>L'Espéluègne</b> — une table traditionnelle et savoureuse.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -829,43 +924,48 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="num serif">6</div>
           <div class="date">28 août</div>
         </div>
-        <div class="titre">Les géants de la terre</div>
-        <div class="charge"><svg class="bars" viewBox="0 0 24 24" stroke-linecap="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>Journée chargée</div>
+        <div class="titre">Jardins, insectes &amp; vie de château</div>
+        <div class="charge"><svg class="bars" viewBox="0 0 24 24" stroke-linecap="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>Journée modérée</div>
         <div class="dodo"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 00<small>soirée calme</small></div>
       </div>
       <div class="day-main">
         <div class="moment">
-          <div class="when"><b>Matin</b>9 h 15</div>
+          <div class="when"><b>Matin</b>9 h 30</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20c0-6 2-13 6-13s6 7 6 13"/><circle cx="12" cy="7" r="1.6"/><path d="M12 7l3-2"/></svg></div>
             <div class="m-txt">
-              <h4>La Ferme aux Autruches</h4>
-              <div class="lieu">Pierrelatte</div>
-              <p>Oiseaux géants et poussins : une balade très calme pour lancer la journée. Fin vers 11 h 30.</p>
+              <h4>Le Naturoptère de Sérignan</h4>
+              <div class="lieu">Sérignan-du-Comtat · ~15 min</div>
+              <p>Exit la Ferme aux Autruches ! Cap sur ce superbe centre interactif dédié à la nature et aux insectes. C'est ludique, rempli de couleurs, et entouré des magnifiques jardins de l'Harmas Jean-Henri Fabre, parfaits pour gambader.</p>
             </div>
           </div>
         </div>
         <div class="moment eat">
-          <div class="when"><b>Midi</b>12 h 30</div>
+          <div class="when"><b>Midi</b>12 h 00</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>Bistrot de pays</h4>
-              <div class="lieu">Bourg-Saint-Andéol</div>
-              <p>Une table qui joue le fait-maison, sans se compliquer la vie.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18"/></svg>fait maison</span></div>
+              <h4>Déjeuner en Drôme Provençale</h4>
+              <div class="lieu">Sérignan ou Suze-la-Rousse</div>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Manger dans les parages :</b>
+                <ul>
+                   <li><b>Le Pré du Moulin</b> (Sérignan) — excellente table avec patio bucolique.</li>
+                   <li><b>Le Café des Vignes</b> (Suze-la-Rousse) — très bonne brasserie pour enchaîner sur le château l'après-midi.</li>
+                   <li><b>La Table d'Anis</b> (Bollène) — cuisine généreuse et maîtrisée.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="moment rest">
-          <div class="when"><b>Après-midi</b>14 h 30</div>
+          <div class="when"><b>Après-midi</b>12 h 30</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 3 3 4-7 5 13z"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste, puis dinosaures &amp; chevaliers</h4>
-              <div class="lieu">Bourg-Saint-Andéol · ~15 min</div>
-              <p>Zoo des Dinosaures, Musée du Monde Souterrain et Maison des Chevaliers : de quoi combiner rugissements et légendes médiévales dans le même après-midi.</p>
-              <div class="tags"><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>3 sites d'affilée : on garde le porte-bébé et un rythme souple</span></div>
+              <h4>Sieste (jusqu'à 15h) &amp; Château de Suze-la-Rousse</h4>
+              <div class="lieu">Suze-la-Rousse</div>
+              <p>Puisque les Dinosaures ont été vus à l'Aven de Marzal, on remplace l'après-midi par une promenade royale ! Après la sieste, exploration de l'immense parc boisé du Château de Suze-la-Rousse (La Garenne), idéal et très ombragé pour les enfants, surplombé par la forteresse.</p>
             </div>
           </div>
         </div>
@@ -874,9 +974,15 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M6 19V9l6-5 6 5v10M10 19v-6h4v6"/></svg></div>
             <div class="m-txt">
-              <h4>Retour au calme</h4>
+              <h4>Retour au calme (Lapalud)</h4>
               <div class="lieu">Au gîte</div>
-              <p>Dîner maison, pas d'excursion : après deux journées bien remplies, on s'offre une vraie soirée tranquille.</p>
+              <p>Soirée paisible. Si vous n'avez pas envie de cuisiner :</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Ultime option proche :</b>
+                <ul>
+                   <li><b>Le Relais du Pont d'Arc</b> (Bollène) — ou des pizzas à emporter sur Lapalud pour faire simple.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -891,7 +997,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="num serif">7</div>
           <div class="date">29 août</div>
         </div>
-        <div class="titre">Miniatures &amp; marché nocturne</div>
+        <div class="titre">Grignan et marché nocturne</div>
         <div class="charge"><svg class="bars" viewBox="0 0 24 24" stroke-linecap="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>Journée chargée</div>
         <div class="dodo"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 15<small>retour du marché</small></div>
       </div>
@@ -901,33 +1007,38 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11l4-3 4 3v9M12 20v-6l4-3 4 3v6"/></svg></div>
             <div class="m-txt">
-              <h4>Le Village Provençal Miniature</h4>
+              <h4>Exploration du Château de Grignan</h4>
               <div class="lieu">Grignan · ~30 min</div>
-              <p>Reconstitution géante de santons animés — la féerie parfaite pour le grand.</p>
+              <p>On oublie les miniatures et on passe au vrai château de Madame de Sévigné ! De vastes cours intérieures hyper sécurisées, des terrasses vertigineuses (bien grillagées) et des ruelles piétonnes magnifiques. Parfait pour défouler un 2 ans et demi le matin.</p>
             </div>
           </div>
         </div>
         <div class="moment eat">
-          <div class="when"><b>Midi</b>12 h 30</div>
+          <div class="when"><b>Midi</b>12 h 00</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>L'Eau à la Bouche</h4>
-              <div class="lieu">Grignan</div>
-              <p>Petite table locale, cuisine du marché et produits bruts, avant de redescendre pour la sieste.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6 6.5.5-5 4 1.5 6.5L12 15.5 5 19l1.5-6.5-5-4 6.5-.5z"/></svg>cuisine du marché</span></div>
+              <h4>Déjeuner autour de Grignan</h4>
+              <p>Il y a d'excellentes tables qui subliment les produits du marché, juste en bas du château.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Belles tables à Grignan :</b>
+                <ul>
+                   <li><b>L'Eau à la Bouche</b> — cuisine 100% marché, authentique.</li>
+                   <li><b>Le Poème</b> — belle terrasse, saveurs provençales.</li>
+                   <li><b>Le Café des Vignerons</b> — pour des plats bistrot plus rapides mais qualitatifs.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="moment rest">
-          <div class="when"><b>Après-midi</b>14 h 30</div>
+          <div class="when"><b>Après-midi</b>12 h 30</div>
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5a3 3 0 016 0v2"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste, valises, puis les beaux villages</h4>
-              <div class="lieu">Aiguèze · Pont-Saint-Esprit · Saint-Martin-d'Ardèche</div>
-              <p>On range tranquillement, puis en fin d'après-midi on file faire le tour des plus beaux villages du coin avant de clore le séjour en beauté.</p>
-              <div class="tags"><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19v-4M12 19v-9M19 19V5"/></svg>3 villages + marché : partir tôt, en piochant selon la forme des petits</span></div>
+              <h4>Sieste (12h30-15h), valises, beaux villages</h4>
+              <div class="lieu">Aiguèze · Pont-Saint-Esprit · St-Martin</div>
+              <p>La sieste terminée (vers 15h), on range, puis on file faire le tour des plus beaux villages du coin (dont Aiguèze qui surplombe l'Ardèche).</p>
             </div>
           </div>
         </div>
@@ -938,8 +1049,14 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Marché nocturne</h4>
               <div class="lieu">Saint-Martin-d'Ardèche · ~15 min</div>
-              <p>On arrive tôt pour dîner directement sur les stands : crêpes bio, fromages, légumes locaux, à picorer en marchant, sans l'attente d'un restaurant. Retour au gîte vers 20 h 15.</p>
-              <div class="tags"><span class="tag food"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6 6.5.5-5 4 1.5 6.5L12 15.5 5 19l1.5-6.5-5-4 6.5-.5z"/></svg>ultra-frais, sur le pouce</span><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>petite monnaie</span></div>
+              <p>On arrive tôt pour dîner sur les stands (crêpes bio, fromages). Les petits picorent en marchant, sans l'attente d'un restaurant.</p>
+              <div class="resto-box">
+                <b class="rb-title">🍽️ Plan B (si les enfants veulent s'asseoir) :</b>
+                <ul>
+                   <li><b>L'Escale</b> (Saint-Martin) — brasserie face à l'eau.</li>
+                   <li><b>La Guinguette de l'Ardèche</b> — ambiance très vacances.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -958,8 +1075,8 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <div class="timeline">
       <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span><b>Matin —</b> rangement et valises, sans stress</span></div>
       <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7.5" cy="18" r="1.4"/><circle cx="16.5" cy="18" r="1.4"/></svg><span><b>12 h pile —</b> départ de Lapalud</span></div>
-      <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg><span><b>Sur la route —</b> sieste intégrale des petits, dernier chapitre du séjour</span></div>
-      <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22V12h6v10M4 9l8-6 8 6M4 9v11h4M20 9v11h-4"/></svg><span><b>Milieu d'après-midi —</b> arrivée, reposés et sans un seul plat ultra-transformé. Ou presque.</span></div>
+      <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg><span><b>Sur la route —</b> sieste intégrale (12h30-15h)</span></div>
+      <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22V12h6v10M4 9l8-6 8 6M4 9v11h4M20 9v11h-4"/></svg><span><b>Milieu d'après-midi —</b> arrivée, reposés et sans un seul plat ultra-transformé !</span></div>
     </div>
   </div>
 </section>
@@ -971,14 +1088,14 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <h2 class="serif">À réserver, à ne pas oublier</h2>
     <p class="sub">Une fois ces cases cochées, il ne reste plus qu'à profiter.</p>
     <div class="check-grid">
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver le créneau de la Grotte Chauvet 2 (jeudi après-midi) en ligne — c'est le site le plus demandé du séjour.</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les billets du Mastrou (lundi matin) et vérifier l'horaire de départ à Tournon.</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les tables du soir (L'Oiseau sur sa branche, La Part du Colibri, Le Jardin des Secrets) : ça se remplit vite en août.</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Glisser une petite laine dans le sac — Chauvet 2 et les Grottes de Soyons restent frais toute l'année.</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prévoir le porte-bébé pour les Grottes de Soyons et le Zoo des Dinosaures.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les billets des Bateliers de l'Ardèche (jeudi) à l'avance.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les billets du Mastrou (lundi, journée complète Tournon-Lamastre) : places limitées en août.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prendre les billets du Safari de Peaugres en ligne (billet Futé, moins cher qu'au guichet).</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver la table du soir au Jardin des Secrets (jeudi).</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prévoir le porte-bébé (très utile pour l'Aven de Marzal et le Château de Grignan).</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Emporter de la petite monnaie pour picorer au marché nocturne de Saint-Martin-d'Ardèche.</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Confirmer les horaires d'ouverture d'août (fermetures possibles en début de semaine).</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Accepter que jeudi, on se couche à 20 h 45. La Terre continuera de tourner.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Confirmer les horaires d'ouverture d'août des musées (Le Naturoptère).</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Accepter que lundi, mardi et jeudi, le coucher glisse un peu. La Terre continuera de tourner.</div>
     </div>
   </div>
 </section>
