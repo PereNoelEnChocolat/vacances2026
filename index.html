@@ -81,7 +81,7 @@ h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-
 .rythme-card p.sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 22px;max-width:46em;}
 .arc-svg{width:100%;height:auto;display:block;}
 
-/* MANIFESTE - PASSÉ À 3 COLONNES */
+/* MANIFESTE (Modifié pour 3 colonnes) */
 .regles{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .regle{ background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 18px; position:relative; }
 .regle .n{font-family:'DM Mono',monospace;font-size:12px;color:var(--lavande);letter-spacing:.08em;}
@@ -141,13 +141,14 @@ h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-
 .tag.note{background:var(--terre-lt);color:var(--terre);}
 .tag.cool{background:#E4EEF3;color:#3C6478;}
 
-/* RESTAURANTS (Critique) */
-.resto-box{ margin-top: 14px; padding: 12px 16px; background: var(--paper-warm); border-radius: 10px; border: 1px solid var(--soleil-lt); }
-.resto-box b.rb-title { display: block; font-size: 13px; color: var(--terre); margin-bottom: 6px; }
+/* RESTAURANTS (Liens + Style Critique) */
+.resto-box{ margin-top: 14px; padding: 14px 18px; background: var(--paper-warm); border-radius: 12px; border: 1px solid var(--soleil-lt); }
+.resto-box b.rb-title { display: block; font-size: 13px; color: var(--terre); margin-bottom: 8px; }
 .resto-box ul { margin: 0; padding: 0; list-style: none; }
-.resto-box ul li { position: relative; padding-left: 14px; font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; line-height: 1.45; }
+.resto-box ul li { position: relative; padding-left: 14px; font-size: 13.5px; color: var(--ink-soft); margin-bottom: 8px; line-height: 1.45; }
+.resto-box ul li:last-child { margin-bottom: 0; }
 .resto-box ul li::before { content: "•"; color: var(--soleil); position: absolute; left: 0; font-weight: bold; }
-.resto-box ul li a { color: var(--lavande-dp); text-decoration: underline; text-underline-offset: 2px; font-weight:500; }
+.resto-box ul li a { color: var(--lavande-dp); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; transition: color 0.2s; }
 .resto-box ul li a:hover { color: var(--nuit); }
 
 /* TRANSITION */
@@ -188,7 +189,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
 /* RESPONSIVE */
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:26px;}
-  .regles{grid-template-columns:repeat(2,1fr);}
+  .regles{grid-template-columns:1fr;}
 }
 @media (max-width:680px){
   .nav-brand span.long{display:none;}
@@ -203,7 +204,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
   .moment .when b{margin:0;}
   .retour{grid-template-columns:1fr;gap:18px;}
   .check-grid{grid-template-columns:1fr;}
-  .regles{grid-template-columns:1fr;}
 }
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none;}
@@ -233,7 +233,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <div>
       <span class="eyebrow">Drôme &amp; Ardèche · 8 jours en famille</span>
       <h1>Deux bases,<br>deux <em>amours</em> en bas âge,<br>et des siestes <span class="sun">non&nbsp;négociables.</span></h1>
-      <p class="lede">Du 23 au 30 août, on explore la Drôme et l'Ardèche avec les petits (6 mois &amp; 2 ans et demi), au rythme de quelques règles simples : matinées fraîches, siestes sacrées, et dodo à 20 h. Sauf quelques exceptions assumées les jours de grande sortie.</p>
+      <p class="lede">Du 23 au 30 août, on explore la Drôme et l'Ardèche avec les petits (6 mois &amp; 2 ans et demi), au rythme de règles simples : matinées fraîches, siestes sacrées, et dodo à 20 h. Sauf quelques exceptions assumées les jours de grande sortie.</p>
       <div class="meta">
         <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Dim 23 → Dim 30 août</span>
         <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg>4 à table, 2 en poussette</span>
@@ -297,23 +297,22 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
         <path d="M900 150 a13 13 0 1 1 -9 -22 a10 10 0 0 0 9 22Z" fill="#241A3D"/>
         
         <g font-family="DM Mono, monospace" font-size="12" text-anchor="middle">
-          <!-- Matin -->
           <circle cx="150" cy="96" r="6" fill="#7B69AB"/>
           <text x="150" y="176" fill="#221B33" font-weight="500">9 h</text>
           <text x="150" y="192" fill="#6B6284">Sortie fraîche</text>
-          <!-- Midi -->
+          
           <circle cx="345" cy="47" r="6" fill="#E7A233"/>
           <text x="345" y="176" fill="#221B33" font-weight="500">12 h 00</text>
           <text x="345" y="192" fill="#6B6284">Déjeuner</text>
-          <!-- Sieste -->
+          
           <circle cx="540" cy="47" r="6" fill="#7F9155"/>
           <text x="540" y="176" fill="#221B33" font-weight="500">12 h 30 / 13 h</text>
           <text x="540" y="192" fill="#6B6284">Sieste (jusqu'à 15h)</text>
-          <!-- Dîner -->
+          
           <circle cx="735" cy="96" r="6" fill="#B85B3C"/>
           <text x="735" y="176" fill="#221B33" font-weight="500">19 h</text>
           <text x="735" y="192" fill="#6B6284">Dîner très tôt</text>
-          <!-- Dodo -->
+          
           <circle cx="900" cy="150" r="6" fill="#241A3D"/>
           <text x="895" y="176" fill="#241A3D" font-weight="500">20 h</text>
           <text x="895" y="192" fill="#6B6284">Dodo</text>
@@ -326,19 +325,19 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
         <span class="n">01</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
         <b>Matinées fraîches</b>
-        <p>Les visites avant midi, tant que le thermomètre reste doux et que les petits sont en pleine forme.</p>
+        <p>Les visites avant midi, tant que le thermomètre reste doux et que les petits sont en forme.</p>
       </div>
       <div class="regle reveal">
         <span class="n">02</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-8 4-11 8-11s6 3 8 11M12 9V3"/></svg></div>
         <b>Sieste sacrée</b>
-        <p>Rien ne se planifie entre 12 h 30 et 15 h — sauf si elle se fait au fil d'un déplacement.</p>
+        <p>Rien ne se planifie entre 12 h 30 et 15 h — sauf si elle se fait au fil d'un déplacement en poussette ou en voiture.</p>
       </div>
       <div class="regle reveal">
         <span class="n">03</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></div>
         <b>Dodo à 20 h</b>
-        <p>Une religion familiale, avec quelques entorses assumées les jours de très grande sortie.</p>
+        <p>Une religion familiale pour garantir le calme de tous, avec quelques entorses assumées selon la journée.</p>
       </div>
     </div>
   </section>
@@ -389,12 +388,11 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
               <h4>Halte sur la route</h4>
-              <p>Un déjeuner simple pour couper le trajet, sans grandes ambitions gastronomiques.</p>
+              <p>Un déjeuner simple pour couper le trajet, sans grandes ambitions gastronomiques pour ce premier jour.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Nos options en route :</b>
+                <b class="rb-title">🍽️ Nos options de route :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Auberge+de+la+Valloire" target="_blank">L'Auberge de la Valloire</a> — Pratique car proche de l'autoroute, mais le cadre manque de charme et le service est parfois un peu trop expéditif.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Guinguette+du+Rhône" target="_blank">La Guinguette du Rhône</a> — Cadre sympa au bord de l'eau, mais la friture est inégale et on paie clairement l'emplacement.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Auberge+de+la+Valloire+Epinouze" target="_blank">L'Auberge de la Valloire (Épinouze)</a> — Pratique si on sort de l'autoroute, cuisine simple. Revers de la médaille : le service peut s'avérer un peu expéditif en salle.</li>
                 </ul>
               </div>
             </div>
@@ -417,7 +415,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
             <div class="m-txt">
               <h4>Premiers pas à Charmes-sur-Rhône</h4>
-              <p>Le temps de se dégourdir les jambes avant le check-in : petite balade dans le vieux village.</p>
+              <p>Le temps de se dégourdir les jambes avant le check-in avec une courte balade dans le vieux village.</p>
             </div>
           </div>
         </div>
@@ -430,11 +428,11 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="lieu">Charmes-sur-Rhône</div>
               <p>Installation à 18 h pile, puis on se restaure simplement à proximité.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Où dîner autour du gîte :</b>
+                <b class="rb-title">🍽️ Dîner près du gîte (Vraies adresses) :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Beau+Rivage+Charmes-sur-Rhône" target="_blank">Restaurant Beau Rivage</a> — Institution locale avec belle terrasse sur le Rhône. Revers de la médaille : la carte est très classique, limite figée dans le temps.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Chez+Dume+Charmes-sur-Rhône" target="_blank">Pizzeria Chez Dume</a> — Pizzas correctes pour dépanner au gîte, bien que la garniture pourrait parfois être plus généreuse.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Grappe+d'Or+Soyons" target="_blank">La Grappe d'Or (Soyons)</a> — Cuisine familiale sans prétention, à 10 min. La déco est un peu datée mais ça fait le travail.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Brasserie+Auguste+Charmes-sur-Rhône" target="_blank">Brasserie Auguste</a> — Excellente réputation et plats très généreux. Attention toutefois : le lieu est très demandé, il peut y avoir de l'attente avec les petits.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Ardoise+Bleue+Charmes-sur-Rhône" target="_blank">L'Ardoise Bleue</a> — Assiettes soignées et produits locaux. Le menu enfant reste en revanche assez basique.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Sta's+Pizza+Charmes-sur-Rhône" target="_blank">Sta's Pizza</a> — Des pizzas très correctes pour dépanner directement au gîte, bien que la garniture pourrait parfois être un peu plus fournie.</li>
                 </ul>
               </div>
             </div>
@@ -474,7 +472,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Le Mastrou, départ</h4>
               <div class="lieu">Gare de Tournon-sur-Rhône</div>
-              <p>Voyage à la journée en train à vapeur, à travers les Gorges du Doux.</p>
+              <p>Voyage à la journée en train à vapeur, à travers les magnifiques Gorges du Doux.</p>
             </div>
           </div>
         </div>
@@ -488,9 +486,9 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Manger à Lamastre :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+de+la+Gare+Lamastre" target="_blank">Restaurant de la Gare</a> — Idéalement situé à la descente du train. La rançon du succès : c'est très bruyant et le service est parfois débordé.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Mère+Balle+Lamastre" target="_blank">La Mère Balle</a> — Bistrot volontaire mais l'assiette manque ponctuellement de finesse.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Châtaignier+Lamastre" target="_blank">Le Châtaignier</a> — Spécialités ardéchoises très copieuses, presque trop lourdes pour un midi d'été.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Chez+Germaine+Lamastre" target="_blank">Chez Germaine</a> — Cuisine de bistrot volontaire et authentique. Attention, l'endroit est vite bruyant quand les trains déversent leurs passagers.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Castel+Lamastre" target="_blank">Le Castel</a> — Un peu à l'écart du flux, très agréable, mais le service traîne parfois un peu en longueur pour des tout-petits.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Pizzéria+Le+Lieu-Dit+Lamastre" target="_blank">Pizzéria Le Lieu-Dit</a> — Simple et efficace si les enfants refusent tout le reste. Pas de grande gastronomie, mais ça fait le travail.</li>
                 </ul>
               </div>
             </div>
@@ -503,7 +501,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste douce, puis train du retour (15h)</h4>
               <div class="lieu">Lamastre → Tournon</div>
-              <p>De 13h à 15h, sieste en poussette à l'ombre dans le village, puis on embarque à 15h pour le retour en train.</p>
+              <p>De 13h à 15h, sieste en poussette à l'ombre dans le village, puis on embarque à 15h pour le retour en train (idéal pour finir d'endormir le bébé).</p>
             </div>
           </div>
         </div>
@@ -513,12 +511,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
               <h4>Retour, dîner léger</h4>
-              <p>On rentre tranquillement pour un dîner à la maison.</p>
+              <p>On rentre tranquillement pour un dîner à la maison ou juste avant de partir de Tournon.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Envie d'une table à Tournon avant de rentrer ?</b>
+                <b class="rb-title">🍽️ Tables à Tournon / Tain :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Chaudron+Tournon-sur-Rhône" target="_blank">Le Chaudron</a> — Bonne réputation locale, mais les tables sont un peu tassées et l'addition grimpe très vite.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Farfadet+Tournon-sur-Rhône" target="_blank">Le Farfadet</a> — Crêperie honnête. La pâte est bonne, le cidre reste en revanche assez basique.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Chaumière+Tournon-sur-Rhône" target="_blank">La Chaumière (Tournon)</a> — Adresse très prisée. La cuisine est savoureuse, mais les tables sont un peu tassées ce qui complique la gestion d'une poussette.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Farfadet+Tournon-sur-Rhône" target="_blank">Le Farfadet (Tournon)</a> — Crêperie très correcte. Idéal pour faire vite, même si le choix de cidre reste assez convenu.</li>
                 </ul>
               </div>
             </div>
@@ -557,12 +555,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
               <h4>Déjeuner sur le parc</h4>
-              <p>Pas besoin de sortir du site pour déjeuner tranquillement.</p>
+              <p>Pas besoin de sortir du site pour déjeuner tranquillement, même si la qualité est celle d'un parc de loisirs.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Comment gérer le repas :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Safari+de+Peaugres+Restauration" target="_blank">Snacks du Safari</a> — Restauration captive typique : cher pour ce que c'est et plutôt industriel, mais imbattable sur le côté pratique avec des petits.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Auberge+du+Lac+Peaugres" target="_blank">Auberge du Lac</a> — Cadre apaisant à l'extérieur du parc, bien que le service soit parfois un peu guindé pour une tablée avec de jeunes enfants.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Safari+de+Peaugres+Restauration" target="_blank">Snacks du Safari</a> — Restauration de parc typique : cher et plutôt industriel, mais imbattable sur le côté pratique avec des petits affamés.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+de+la+Treille+Champagne" target="_blank">Restaurant de la Treille (Champagne)</a> — Bonne brasserie proche du parc, mais oblige à ressortir (idéal si vous avez prévu le parc sur une demi-journée seulement).</li>
                 </ul>
               </div>
             </div>
@@ -575,7 +573,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste (jusqu'à 15h), puis circuit à pied</h4>
               <div class="lieu">Safari de Peaugres</div>
-              <p>La sieste se fait dans la poussette (ou porte-bébé) à l'ombre. Ensuite, découverte à pied du tunnel de verre (fauves) et des singes.</p>
+              <p>La sieste se fait dans la poussette (ou porte-bébé) à l'ombre. Ensuite, découverte à pied du tunnel de verre (fauves) et de l'espace des singes.</p>
             </div>
           </div>
         </div>
@@ -585,12 +583,11 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
               <h4>Retour au gîte</h4>
-              <p>Une grande journée dehors : on dîne et on se couche un peu plus tard.</p>
+              <p>Une grande journée dehors : on dîne sur la route et on se couche un peu plus tard.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Bonnes adresses au retour :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Le+Terminus+Cruas" target="_blank">Le Terminus (Cruas)</a> — Cuisine régionale sérieuse, mais la proximité de la route gâche un peu la tranquillité de la terrasse.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Olivier+Saint-Georges-les-Bains" target="_blank">L'Olivier (Saint-Georges-les-Bains)</a> — Bon compromis qualité/prix, même si les desserts sont souvent en deçà des plats principaux.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Olivier+Saint-Georges-les-Bains" target="_blank">L'Olivier (St-Georges-les-Bains)</a> — Bon compromis sur la route du retour. C'est frais et honnête, même si les desserts accusent parfois une petite baisse de régime.</li>
                 </ul>
               </div>
             </div>
@@ -606,11 +603,11 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
   <div class="transition reveal">
     <span class="eyebrow">Mercredi 26 · Jour 4</span>
     <h2 class="serif">Des bonbons aux profondeurs — cap au sud</h2>
-    <p>Check-out du premier gîte, une entorse sucrée bien méritée, un déjeuner paysan, puis la route qui devient la sieste. On descend vers Lapalud et on boucle la journée dans une spectaculaire forêt de dinosaures à l'Aven de Marzal.</p>
+    <p>Check-out du premier gîte, une entorse sucrée bien méritée, un déjeuner, puis la route qui devient la sieste. On descend vers Lapalud et on boucle la journée dans une spectaculaire forêt de dinosaures à l'Aven de Marzal.</p>
     <div class="stops">
       <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l7-7 7 7v9H5z"/><path d="M9 20v-6h6v6"/></svg>Check-out Gîtes de Mirabel</span>
       <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 4 4 .5-3 3 .8 4.2L12 12l-3.8 2.7L9 10.5l-3-3 4-.5z"/></svg>Palais des Bonbons</span>
-      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5"/></svg>Déjeuner paysan</span>
+      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5"/></svg>Déjeuner à Montélimar</span>
       <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"/></svg>Sieste auto → Lapalud</span>
     </div>
   </div>
@@ -635,7 +632,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Check-out &amp; Palais des Bonbons</h4>
               <div class="lieu">Montélimar</div>
-              <p>Espace climatisé — la seule entorse sucrée de la semaine, et elle est méritée.</p>
+              <p>Espace climatisé — la seule entorse très sucrée de la semaine, et elle est méritée.</p>
             </div>
           </div>
         </div>
@@ -649,9 +646,8 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Tables montiliennes :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Bistrot+des+Paysans+Montélimar" target="_blank">Le Bistrot des Paysans</a> — Concept sympa de la ferme à l'assiette, par contre la salle fait parfois un peu "cantine" et le volume sonore monte vite.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+de+Margot+Montélimar" target="_blank">La Table de Margot</a> — Portions généreuses, mais l'attente peut devenir longue avec des tout-petits impatients.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Petit+Véran+Montélimar" target="_blank">Le Petit Véran</a> — Produits très frais et carte courte, dommage que l'accueil soit ponctuellement un peu froid.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Bistrot+des+Paysans+Montélimar" target="_blank">Le Bistrot des Paysans</a> — Concept très sympa "de la ferme à l'assiette". Par contre, la salle fait parfois un peu cantine et le volume sonore monte très vite.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+de+Margot+Montélimar" target="_blank">La Table de Margot</a> — Portions généreuses, mais l'attente peut s'éterniser si le restaurant est plein (ce qui arrive souvent).</li>
                 </ul>
               </div>
             </div>
@@ -664,7 +660,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste en auto, puis l'Aven de Marzal</h4>
               <div class="lieu">La Chamade, Lapalud → Saint-Remèze</div>
-              <p>Les petits dorment bercés par la descente. On pose les valises au gîte, puis cap sur l'Aven de Marzal : sa Forêt des Dinosaures grandeur nature va passionner le grand. <em>(Note : la grotte elle-même a de nombreuses marches, restez plutôt sur le parc surface).</em></p>
+              <p>Les petits dorment bercés par la descente. On pose les valises au gîte, puis cap sur l'Aven de Marzal : sa Forêt des Dinosaures grandeur nature va passionner le grand. <em>(Note : la grotte elle-même a d'innombrables marches, il est bien plus reposant de rester sur le parc en surface).</em></p>
             </div>
           </div>
         </div>
@@ -677,11 +673,11 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="lieu">Autour du gîte (Lapalud)</div>
               <p>On digère le changement de maison et on attaque l'Ardèche du sud.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ À tester à Lapalud :</b>
+                <b class="rb-title">🍽️ Dîner à Lapalud :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Bouchon+de+Lapalud" target="_blank">Le Bouchon de Lapalud</a> — Classiques bien exécutés, l'atmosphère y est en revanche assez bruyante.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+La+Cigale+Lapalud" target="_blank">Pizzeria La Cigale</a> — Pratique, mais la pâte à pizza manque parfois d'un peu de cuisson au centre.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+de+Marie+Lapalud" target="_blank">La Table de Marie</a> — Jolie petite cour et assiettes soignées, même si les prix s'emballent un peu le soir.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Bistrot+des+Clem's+Lapalud" target="_blank">Le Bistrot des Clem's</a> — Cuisine chaleureuse et bien sentie, mais pensez à réserver car la jauge est assez limitée.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Mistral+Lapalud" target="_blank">Le Mistral</a> — Restaurant très traditionnel. Parfait pour une halte rapide, même si la décoration mérite un rafraîchissement.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Brasserie+du+Lac+Lapalud" target="_blank">Brasserie du Lac</a> — Très accessible pour les enfants. Les plats sont inégaux (privilégiez les classiques brasserie).</li>
                 </ul>
               </div>
             </div>
@@ -715,7 +711,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="num serif">5</div>
           <div class="date">27 août</div>
         </div>
-        <div class="titre">Les incontournables (sans forcer)</div>
+        <div class="titre">Détente, forêt et fraîcheur</div>
         <div class="dodo exc"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 45<small>l'exception du séjour</small></div>
       </div>
       <div class="day-main">
@@ -726,7 +722,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>La Ferme aux Crocodiles</h4>
               <div class="lieu">Pierrelatte · ~15 min</div>
-              <p>Serre tropicale plate et facile en poussette. Fin vers 11h30 avant les grosses chaleurs.</p>
+              <p>Serre tropicale totalement plate et facile en poussette. Fin vers 11h30, avant la cohue et les grosses chaleurs.</p>
             </div>
           </div>
         </div>
@@ -738,11 +734,10 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <h4>Pause gourmande à Pierrelatte</h4>
               <p>On s'attable au calme avant la sieste.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Belles tables du coin :</b>
+                <b class="rb-title">🍽️ Belles tables à Pierrelatte :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Maison+du+Goût+Pierrelatte" target="_blank">La Maison du Goût</a> — Bons produits de terroir, idéal sur le pouce. Mais les assises (tabourets hauts) ne sont pas idéales avec un bébé, et le service est parfois expéditif.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Le+17+Pierrelatte" target="_blank">Le 17</a> — Cuisine moderne très bien dressée, dommage que les portions soient un peu chiches pour les gros appétits.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Brasserie+du+Cours+Pierrelatte" target="_blank">La Brasserie du Cours</a> — Efficace et rapide, le bruit de la circulation proche est le seul vrai bémol.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+du+Trusquin+Pierrelatte" target="_blank">La Table du Trusquin</a> — Très joli cadre et cuisine soignée. Le bémol ? L'addition grimpe assez vite et le service est parfois emprunté.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Catta+Pizza+Pierrelatte" target="_blank">Catta Pizza</a> — Pâte excellente et recettes originales. L'inconvénient est que la salle est petite et bruyante.</li>
                 </ul>
               </div>
             </div>
@@ -755,8 +750,8 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste, puis La Forêt des Jeux</h4>
               <div class="lieu">Saint-Remèze</div>
-              <p>Beaucoup plus adapté qu'une barque en plein cagnard ou que les contraintes d'une grotte profonde. C'est une forêt de chênes hyper dense, remplie de jeux en bois géants. Zéro coup de chaud, on flâne à son rythme et c'est parfaitement pensé pour l'âge du plus grand.</p>
-              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>zéro effort et très ombragé</span></div>
+              <p>Beaucoup plus adapté pour de jeunes enfants qu'une barque en plein cagnard ou que les escaliers interminables d'une grotte profonde. C'est une forêt de chênes hyper dense, remplie de jeux en bois géants (construction, adresse, réflexion). Zéro coup de chaud, on flâne à son rythme, à la fraîcheur des arbres.</p>
+              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>zéro effort et ombragé</span></div>
             </div>
           </div>
         </div>
@@ -765,13 +760,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
-              <h4>Dîner proche du plateau</h4>
+              <h4>Dîner à Saint-Remèze</h4>
               <p>Puisqu'on est à Saint-Remèze, on reste dans le secteur avant de redescendre vers Lapalud.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Manger en redescendant :</b>
+                <b class="rb-title">🍽️ Dîner sur le plateau :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Clos+des+Oliviers+Saint-Remèze" target="_blank">Le Clos des Oliviers (Saint-Remèze)</a> — Des plats locaux très corrects, bien que le service soit ponctuellement dépassé par l'affluence du mois d'août.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Auberge+de+Tourne+Bourg-Saint-Andéol" target="_blank">L'Auberge de Tourne (Bourg-St-Andéol)</a> — Terrasse extrêmement agréable en contrebas de la source, dommage que le contenu de l'assiette manque parfois d'un peu de caractère.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Auberge+Chez+Laurette+Saint-Remèze" target="_blank">Auberge Chez Laurette</a> — Excellente cuisine de terroir et accueil adorable. Le revers de la médaille : c'est 100% fait maison, il faut donc accepter un peu d'attente.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Les+Marronniers+Saint-Remèze" target="_blank">Les Marronniers</a> — Cadre simple sous les arbres, les frites sont très bonnes mais la carte manque un peu de folie.</li>
                 </ul>
               </div>
             </div>
@@ -800,7 +795,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Le Naturoptère de Sérignan</h4>
               <div class="lieu">Sérignan-du-Comtat · ~15 min</div>
-              <p>Exit la Ferme aux Autruches ! Cap sur ce superbe centre interactif dédié à la nature et aux insectes. C'est ludique, rempli de couleurs, et entouré des magnifiques jardins de l'Harmas Jean-Henri Fabre, parfaits pour gambader.</p>
+              <p>Cap sur ce superbe centre interactif dédié à la nature et aux insectes. C'est ludique, rempli de couleurs, et entouré de magnifiques jardins de plantes aromatiques.</p>
             </div>
           </div>
         </div>
@@ -814,9 +809,8 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Manger dans les parages :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Pré+du+Moulin+Sérignan-du-Comtat" target="_blank">Le Pré du Moulin (Sérignan)</a> — Très beau patio et assiettes fines, mais l'accueil peut être un peu sec si les enfants font du bruit.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Café+des+Vignes+Suze-la-Rousse" target="_blank">Le Café des Vignes (Suze)</a> — Brasserie vivante et pratique avant le château, bien que le mobilier soit franchement usé.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+d'Anis+Bollène" target="_blank">La Table d'Anis (Bollène)</a> — Très généreux, avec le risque que les plats finissent par être un peu trop riches.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Pré+du+Moulin+Sérignan-du-Comtat" target="_blank">Le Pré du Moulin (Sérignan)</a> — Patio exceptionnel et assiettes très travaillées, mais l'accueil peut se crisper si les jeunes enfants font trop de bruit.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Café+des+Vignes+Suze-la-Rousse" target="_blank">Le Café des Vignes (Suze)</a> — Brasserie vivante parfaite avant le château. Attention, ça reste une vraie brasserie bruyante avec un mobilier qui accuse son âge.</li>
                 </ul>
               </div>
             </div>
@@ -829,7 +823,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste (jusqu'à 15h) &amp; Château de Suze-la-Rousse</h4>
               <div class="lieu">Suze-la-Rousse</div>
-              <p>Après la sieste, exploration de l'immense parc boisé du Château de Suze-la-Rousse (La Garenne). C'est très vaste, idéal pour courir à l'ombre de très grands arbres, avec la forteresse majestueuse au-dessus.</p>
+              <p>Après la sieste en mouvement, on explore l'immense parc boisé du Château de Suze-la-Rousse (La Garenne). C'est très vaste, idéal pour courir à l'ombre de très grands chênes centenaires, avec la forteresse majestueuse au-dessus de vos têtes.</p>
             </div>
           </div>
         </div>
@@ -840,13 +834,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Retour au calme</h4>
               <div class="lieu">Au gîte (Lapalud)</div>
-              <p>Soirée paisible. Si vous n'avez pas envie de cuisiner :</p>
-              <div class="resto-box">
-                <b class="rb-title">🍽️ Ultime option proche :</b>
-                <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Relais+du+Pont+d'Arc+Bollène" target="_blank">Le Relais du Pont d'Arc (Bollène)</a> — Cuisine ménagère copieuse, ambiance routier assumée, faut aimer le style de la salle.</li>
-                </ul>
-              </div>
+              <p>Soirée paisible. Préparez un repas léger ou prenez à emporter au Mistral pour ne pas surcharger la soirée des enfants.</p>
             </div>
           </div>
         </div>
@@ -873,7 +861,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Exploration du Château de Grignan</h4>
               <div class="lieu">Grignan · ~30 min</div>
-              <p>On oublie les miniatures et on passe au vrai château de Madame de Sévigné ! De vastes cours intérieures hyper sécurisées, des terrasses vertigineuses et des ruelles piétonnes magnifiques. Parfait pour défouler un 2 ans et demi le matin.</p>
+              <p>On passe au vrai château de Madame de Sévigné ! De vastes cours intérieures hyper sécurisées, des terrasses vertigineuses et des ruelles piétonnes magnifiques. Parfait pour défouler un petit de 2 ans et demi le matin.</p>
             </div>
           </div>
         </div>
@@ -883,13 +871,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
               <h4>Déjeuner autour de Grignan</h4>
-              <p>Il y a d'excellentes tables qui subliment les produits, juste en bas du château.</p>
+              <p>Excellentes tables qui subliment les produits, juste en bas du château.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Belles tables à Grignan :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Eau+à+la+Bouche+Grignan" target="_blank">L'Eau à la Bouche</a> — Concept marché sympa et frais. En revanche il y a très peu de choix et c'est très vite complet.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Poème+Grignan" target="_blank">Le Poème</a> — Beau cadre typiquement provençal, la note finale est cependant un peu épicée.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Café+des+Vignerons+Grignan" target="_blank">Le Café des Vignerons</a> — Bon bistrot de village, souvent pris d'assaut, préparez-vous à attendre le service de vos plats.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Eau+à+la+Bouche+Grignan" target="_blank">L'Eau à la Bouche</a> — Concept marché très authentique. L'inconvénient est qu'il y a très peu de choix sur l'ardoise et que la salle est minuscule.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Poème+Grignan" target="_blank">Le Poème</a> — Magnifique terrasse provençale, mais attention au porte-monnaie, les tarifs sont ceux d'un haut lieu touristique.</li>
                 </ul>
               </div>
             </div>
@@ -913,12 +900,11 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Marché nocturne</h4>
               <div class="lieu">Saint-Martin-d'Ardèche · ~15 min</div>
-              <p>On arrive tôt pour dîner sur les stands (crêpes bio, fromages). Les petits picorent en marchant, sans l'attente d'un restaurant, même s'il faut toujours se méfier des stands 'attrape-touristes' qui se mêlent parfois aux vrais producteurs locaux.</p>
+              <p>On arrive tôt pour dîner sur les stands (crêpes, charcuterie, fromages). Les petits picorent en marchant sans l'attente d'un restaurant, même s'il faut toujours se méfier des stands 'attrape-touristes' plus industriels qui se mêlent aux producteurs locaux.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Plan B (si vous voulez vous asseoir) :</b>
                 <ul>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Escale+Saint-Martin-d'Ardèche" target="_blank">L'Escale</a> — Brasserie avec vue sympa sur la rivière, par contre c'est de l'abattage pur et dur en haute saison.</li>
-                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Guinguette+de+l'Ardèche+Saint-Martin-d'Ardèche" target="_blank">La Guinguette de l'Ardèche</a> — Ambiance très détendue de vacances, mais la friture y est excessivement grasse.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Escale+Saint-Martin-d'Ardèche" target="_blank">L'Escale</a> — Brasserie avec une belle vue sur la rivière. En revanche, c'est de l'abattage pur et dur avec un service expéditif en haute saison.</li>
                 </ul>
               </div>
             </div>
@@ -952,12 +938,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <h2 class="serif">À réserver, à ne pas oublier</h2>
     <p class="sub">Une fois ces cases cochées, il ne reste plus qu'à profiter.</p>
     <div class="check-grid">
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les billets du Mastrou (lundi, journée complète Tournon-Lamastre) : places limitées en août.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les billets du Mastrou (lundi, journée complète Tournon-Lamastre) : les places sont très limitées en août.</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prendre les billets du Safari de Peaugres en ligne (billet Futé, moins cher qu'au guichet).</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prévoir le porte-bébé (très utile pour l'Aven de Marzal et le Château de Grignan).</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Emporter de la petite monnaie pour picorer au marché nocturne de Saint-Martin-d'Ardèche.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les tables du soir à l'avance, notamment à Saint-Remèze et Grignan, très prisées en plein été.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prévoir le porte-bébé (indispensable pour l'Aven de Marzal et les marches du Château de Grignan).</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Emporter de la petite monnaie pour le marché nocturne de Saint-Martin-d'Ardèche.</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Confirmer les horaires d'ouverture de fin août des musées (Le Naturoptère).</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Accepter que lundi, mardi et jeudi, le coucher glisse un peu. La Terre continuera de tourner.</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Accepter que certains soirs, le coucher glisse un peu. C'est ça aussi les vacances !</div>
     </div>
   </div>
 </section>
@@ -974,7 +961,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
   },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
-  // nav active state
   var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
   var map = {};
   links.forEach(function(a){ var id=a.getAttribute('href').slice(1); var t=document.getElementById(id); if(t) map[id]=a; });
