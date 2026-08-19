@@ -9,43 +9,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Palette — un crépuscule de Provence : la journée qui glisse vers le dodo */
-  --paper:      #F1ECF6;   /* papier lavande pâle */
-  --paper-warm: #FBF5EA;   /* crème chaude, réservé aux repas */
-  --ink:        #221B33;   /* encre aubergine */
+  --paper:      #F1ECF6;
+  --paper-warm: #FBF5EA;
+  --ink:        #221B33;
   --ink-soft:   #6B6284;
   --line:       #DDD3EC;
-
-  --nuit:       #241A3D;   /* aubergine profond — le soir, le dodo */
+  --nuit:       #241A3D;
   --nuit-2:     #362757;
   --lavande:    #7B69AB;
   --lavande-dp: #55437E;
   --lavande-lt: #ECE6F7;
-  --soleil:     #E7A233;   /* le midi, la chaleur */
+  --soleil:     #E7A233;
   --soleil-lt:  #F7E7C6;
-  --olive:      #7F9155;   /* manger vrai, local */
+  --olive:      #7F9155;
   --olive-dp:   #566A38;
   --olive-lt:   #E6EDDA;
-  --terre:      #B85B3C;   /* argile — accents rares, l'exception */
+  --terre:      #B85B3C;
   --terre-lt:   #F6E4DB;
-
   --shadow: 0 1px 2px rgba(36,26,61,.04), 0 12px 34px -18px rgba(36,26,61,.28);
 }
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:'Hanken Grotesk',system-ui,sans-serif;
-  font-size:16px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Hanken Grotesk',system-ui,sans-serif; font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 img{max-width:100%;display:block;}
-a{color:inherit;}
+a{color:inherit; text-decoration:none;}
 
 .serif{font-family:'Newsreader',Georgia,serif;}
 .mono{font-family:'DM Mono',ui-monospace,monospace;}
@@ -53,80 +45,45 @@ a{color:inherit;}
 h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.08;margin:0;}
 .wrap{max-width:1060px;margin:0 auto;padding:0 24px;}
 
-/* Petites étiquettes mono partout */
 .eyebrow{
-  font-family:'DM Mono',monospace;
-  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--lavande-dp);
-  display:inline-flex;align-items:center;gap:10px;
+  font-family:'DM Mono',monospace; font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--lavande-dp); display:inline-flex;align-items:center;gap:10px;
 }
 .eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6;}
 
-/* ---------------- NAV ---------------- */
-.nav{
-  position:sticky;top:0;z-index:60;
-  background:color-mix(in srgb, var(--paper) 82%, transparent);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-}
-.nav-inner{
-  max-width:1060px;margin:0 auto;padding:12px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
-.nav-brand{
-  font-family:'Newsreader',serif;font-weight:500;font-size:17px;color:var(--lavande-dp);
-  white-space:nowrap;display:flex;align-items:center;gap:9px;
-}
+/* NAV */
+.nav{ position:sticky;top:0;z-index:60; background:color-mix(in srgb, var(--paper) 82%, transparent); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+.nav-inner{ max-width:1060px;margin:0 auto;padding:12px 24px; display:flex;align-items:center;justify-content:space-between;gap:16px; }
+.nav-brand{ font-family:'Newsreader',serif;font-weight:500;font-size:17px;color:var(--lavande-dp); white-space:nowrap;display:flex;align-items:center;gap:9px; }
 .nav-brand .dot{width:8px;height:8px;border-radius:50%;background:var(--soleil);box-shadow:0 0 0 4px var(--soleil-lt);}
 .nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
 .nav-links::-webkit-scrollbar{display:none;}
-.nav-links a{
-  font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.03em;
-  color:var(--ink-soft);text-decoration:none;
-  padding:7px 12px;border-radius:100px;white-space:nowrap;
-  transition:background .18s,color .18s;
-}
+.nav-links a{ font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.03em; color:var(--ink-soft); padding:7px 12px;border-radius:100px;white-space:nowrap; transition:background .18s,color .18s; }
 .nav-links a:hover,.nav-links a:focus-visible{background:var(--lavande);color:#fff;outline:none;}
 
-/* ---------------- HERO ---------------- */
+/* HERO */
 .hero{position:relative;padding:56px 0 0;}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;}
-.hero h1{
-  font-size:clamp(40px,6.4vw,74px);
-  margin:18px 0 22px;color:var(--nuit);
-}
+.hero h1{ font-size:clamp(40px,6.4vw,74px); margin:18px 0 22px;color:var(--nuit); }
 .hero h1 em{font-style:italic;color:var(--lavande);}
 .hero h1 .sun{color:var(--soleil);font-style:italic;}
 .lede{font-size:18px;line-height:1.62;color:var(--ink-soft);max-width:30em;margin:0 0 26px;}
 .meta{display:flex;flex-wrap:wrap;gap:9px;}
-.pill{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;border:1px solid var(--line);
-  padding:8px 14px;border-radius:100px;
-  font-size:13px;font-weight:600;color:var(--nuit);
-}
+.pill{ display:inline-flex;align-items:center;gap:8px; background:#fff;border:1px solid var(--line); padding:8px 14px;border-radius:100px; font-size:13px;font-weight:600;color:var(--nuit); }
 .pill svg{width:15px;height:15px;stroke:var(--lavande);fill:none;flex-shrink:0;}
 
-/* paysage signature */
 .scene{width:100%;height:auto;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);}
 
-/* ---------------- L'ARC DU JOUR (signature) ---------------- */
+/* L'ARC DU JOUR */
 .rythme{margin-top:52px;}
-.rythme-card{
-  background:#fff;border:1px solid var(--line);border-radius:24px;
-  padding:30px 30px 22px;box-shadow:var(--shadow);
-  position:relative;overflow:hidden;
-}
+.rythme-card{ background:#fff;border:1px solid var(--line);border-radius:24px; padding:30px 30px 22px;box-shadow:var(--shadow); position:relative;overflow:hidden; }
 .rythme-card h2{font-size:24px;color:var(--nuit);margin-bottom:4px;}
 .rythme-card p.sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 22px;max-width:46em;}
 .arc-svg{width:100%;height:auto;display:block;}
 
-/* ---------------- MANIFESTE ---------------- */
-.regles{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-.regle{
-  background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 18px;
-  position:relative;
-}
+/* MANIFESTE - PASSÉ À 3 COLONNES */
+.regles{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.regle{ background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 18px; position:relative; }
 .regle .n{font-family:'DM Mono',monospace;font-size:12px;color:var(--lavande);letter-spacing:.08em;}
 .regle .ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:10px 0 12px;}
 .regle .ic svg{width:22px;height:22px;stroke:#fff;fill:none;}
@@ -134,64 +91,35 @@ h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-
 .regle p{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.5;}
 .regle:nth-child(1) .ic{background:var(--soleil);}
 .regle:nth-child(2) .ic{background:var(--lavande);}
-.regle:nth-child(3) .ic{background:var(--olive);}
-.regle:nth-child(4) .ic{background:var(--nuit);}
+.regle:nth-child(3) .ic{background:var(--nuit);}
 
-/* ---------------- CHAPITRE (base) ---------------- */
+/* CHAPITRES & JOURS */
 .chapitre{margin-top:84px;}
-.chap-head{
-  display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap;
-  padding-bottom:18px;border-bottom:1px solid var(--line);
-}
-.chap-head .num{
-  font-family:'Newsreader',serif;font-style:italic;font-size:15px;color:var(--lavande);
-  display:block;margin-bottom:6px;
-}
+.chap-head{ display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap; padding-bottom:18px;border-bottom:1px solid var(--line); }
+.chap-head .num{ font-family:'Newsreader',serif;font-style:italic;font-size:15px;color:var(--lavande); display:block;margin-bottom:6px; }
 .chap-head h2{font-size:clamp(30px,4.4vw,46px);color:var(--nuit);}
 .chap-lodge{text-align:right;max-width:270px;font-size:13.5px;color:var(--ink-soft);}
 .chap-lodge b{font-family:'Newsreader',serif;font-weight:600;font-size:17px;color:var(--nuit);display:block;margin-bottom:2px;}
 .chap-lodge .loc{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--lavande-dp);letter-spacing:.04em;display:inline-flex;align-items:center;gap:5px;margin-bottom:6px;}
 .chap-lodge .loc svg{width:12px;height:12px;stroke:var(--lavande);fill:none;}
 
-/* ---------------- CARTE JOUR ---------------- */
 .days{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
-.day{
-  background:#fff;border:1px solid var(--line);border-radius:24px;
-  box-shadow:var(--shadow);overflow:hidden;
-  display:grid;grid-template-columns:210px 1fr;
-  scroll-margin-top:80px;
-}
-.day-aside{
-  padding:26px 22px;position:relative;
-  background:linear-gradient(178deg,var(--lavande-lt) 0%, #fff 60%);
-  border-right:1px solid var(--line);
-  display:flex;flex-direction:column;
-}
+.day{ background:#fff;border:1px solid var(--line);border-radius:24px; box-shadow:var(--shadow);overflow:hidden; display:grid;grid-template-columns:210px 1fr; scroll-margin-top:80px; }
+.day-aside{ padding:26px 22px;position:relative; background:linear-gradient(178deg,var(--lavande-lt) 0%, #fff 60%); border-right:1px solid var(--line); display:flex;flex-direction:column; }
 .day-aside .jour{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lavande-dp);}
 .day-aside .num{font-family:'Newsreader',serif;font-size:60px;line-height:.9;color:var(--nuit);margin:6px 0 2px;}
 .day-aside .date{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--ink-soft);}
 .day-aside .titre{font-family:'Newsreader',serif;font-weight:600;font-size:19px;color:var(--lavande-dp);margin-top:14px;line-height:1.2;}
-.charge{
-  display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
-  font-family:'DM Mono',monospace;font-size:10.5px;font-weight:500;letter-spacing:.03em;
-  color:var(--terre);background:var(--terre-lt);
-  border:1px solid color-mix(in srgb,var(--terre) 22%,transparent);
-  padding:5px 10px;border-radius:100px;margin-top:12px;
-}
+.charge{ display:inline-flex;align-items:center;gap:7px;align-self:flex-start; font-family:'DM Mono',monospace;font-size:10.5px;font-weight:500;letter-spacing:.03em; color:var(--terre);background:var(--terre-lt); border:1px solid color-mix(in srgb,var(--terre) 22%,transparent); padding:5px 10px;border-radius:100px;margin-top:12px; }
 .charge svg{width:14px;height:14px;stroke:var(--terre);fill:none;flex-shrink:0;}
 .charge .bars path{stroke-width:2.2;}
-.dodo{
-  margin-top:auto;padding-top:18px;
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--nuit);
-}
+.dodo{ margin-top:auto;padding-top:18px; display:inline-flex;align-items:center;gap:8px; font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--nuit); }
 .dodo .moon{width:26px;height:26px;border-radius:50%;background:var(--nuit);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .dodo .moon svg{width:14px;height:14px;stroke:var(--soleil-lt);fill:none;}
 .dodo.exc .moon{background:var(--terre);}
 .dodo.exc{color:var(--terre);}
 .dodo small{display:block;font-size:10px;color:var(--ink-soft);letter-spacing:.02em;}
 
-/* colonne des moments */
 .day-main{padding:22px 26px 26px;}
 .moment{display:grid;grid-template-columns:76px 1fr;gap:16px;padding:16px 0;border-top:1px dashed var(--line);}
 .moment:first-child{border-top:none;padding-top:6px;}
@@ -207,68 +135,32 @@ h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-
 .m-txt .lieu{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--lavande-dp);letter-spacing:.02em;margin-bottom:6px;}
 .m-txt p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.5;}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
-.tag{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:11.5px;font-weight:600;
-  padding:3px 9px;border-radius:100px;
-  background:var(--lavande-lt);color:var(--lavande-dp);
-}
+.tag{ display:inline-flex;align-items:center;gap:5px; font-size:11.5px;font-weight:600; padding:3px 9px;border-radius:100px; background:var(--lavande-lt);color:var(--lavande-dp); }
 .tag svg{width:11px;height:11px;stroke:currentColor;fill:none;}
 .tag.food{background:var(--olive-lt);color:var(--olive-dp);}
 .tag.note{background:var(--terre-lt);color:var(--terre);}
 .tag.cool{background:#E4EEF3;color:#3C6478;}
 
-/* Encadré restaurants */
-.resto-box{
-  margin-top: 14px;
-  padding: 12px 16px;
-  background: var(--paper-warm);
-  border-radius: 10px;
-  border: 1px solid var(--soleil-lt);
-}
-.resto-box b.rb-title {
-  display: block;
-  font-size: 13px;
-  color: var(--terre);
-  margin-bottom: 6px;
-}
+/* RESTAURANTS (Critique) */
+.resto-box{ margin-top: 14px; padding: 12px 16px; background: var(--paper-warm); border-radius: 10px; border: 1px solid var(--soleil-lt); }
+.resto-box b.rb-title { display: block; font-size: 13px; color: var(--terre); margin-bottom: 6px; }
 .resto-box ul { margin: 0; padding: 0; list-style: none; }
-.resto-box ul li {
-  position: relative;
-  padding-left: 14px;
-  font-size: 13px;
-  color: var(--ink-soft);
-  margin-bottom: 4px;
-  line-height: 1.4;
-}
-.resto-box ul li::before {
-  content: "•"; color: var(--soleil); position: absolute; left: 0; font-weight: bold;
-}
+.resto-box ul li { position: relative; padding-left: 14px; font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; line-height: 1.45; }
+.resto-box ul li::before { content: "•"; color: var(--soleil); position: absolute; left: 0; font-weight: bold; }
+.resto-box ul li a { color: var(--lavande-dp); text-decoration: underline; text-underline-offset: 2px; font-weight:500; }
+.resto-box ul li a:hover { color: var(--nuit); }
 
-/* transition */
-.transition{
-  margin-top:22px;
-  background:var(--nuit);
-  background-image:radial-gradient(circle at 88% 12%,rgba(231,162,51,.18),transparent 46%);
-  border-radius:24px;padding:34px 32px;color:#EDE7F7;position:relative;overflow:hidden;
-}
+/* TRANSITION */
+.transition{ margin-top:22px; background:var(--nuit); background-image:radial-gradient(circle at 88% 12%,rgba(231,162,51,.18),transparent 46%); border-radius:24px;padding:34px 32px;color:#EDE7F7;position:relative;overflow:hidden; }
 .transition .eyebrow{color:var(--soleil);}
 .transition h2{color:#fff;font-size:clamp(24px,3.4vw,32px);margin:12px 0 8px;}
 .transition p{color:#C7BEDD;max-width:44em;margin:0;font-size:15px;}
 .transition .stops{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
-.transition .stops span{
-  font-family:'DM Mono',monospace;font-size:12px;color:#EDE7F7;
-  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
-  padding:6px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:7px;
-}
+.transition .stops span{ font-family:'DM Mono',monospace;font-size:12px;color:#EDE7F7; background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16); padding:6px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:7px; }
 .transition .stops svg{width:13px;height:13px;stroke:var(--soleil);fill:none;}
 
-/* retour */
-.retour{
-  background:linear-gradient(178deg,var(--soleil-lt),#fff 70%);
-  border:1px solid var(--line);border-radius:24px;padding:30px 32px;margin-top:22px;
-  display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;box-shadow:var(--shadow);
-}
+/* RETOUR */
+.retour{ background:linear-gradient(178deg,var(--soleil-lt),#fff 70%); border:1px solid var(--line);border-radius:24px;padding:30px 32px;margin-top:22px; display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;box-shadow:var(--shadow); }
 .retour .jour{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--terre);}
 .retour h3{font-size:30px;color:var(--nuit);margin:6px 0 0;}
 .timeline{display:flex;flex-direction:column;gap:11px;}
@@ -276,37 +168,24 @@ h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-
 .tl svg{width:16px;height:16px;stroke:var(--soleil);fill:none;flex-shrink:0;}
 .tl b{color:var(--lavande-dp);font-weight:500;}
 
-/* ---------------- CHECKLIST ---------------- */
+/* CHECKLIST */
 .checklist{margin-top:84px;}
-.check-card{
-  background:var(--olive-dp);
-  background-image:radial-gradient(circle at 86% 16%,rgba(255,255,255,.12),transparent 44%);
-  border-radius:26px;padding:40px;color:#EEF3E6;
-}
+.check-card{ background:var(--olive-dp); background-image:radial-gradient(circle at 86% 16%,rgba(255,255,255,.12),transparent 44%); border-radius:26px;padding:40px;color:#EEF3E6; }
 .check-card .eyebrow{color:#CFE0B7;}
 .check-card h2{color:#fff;font-size:clamp(26px,3.6vw,34px);margin:12px 0 4px;}
 .check-card p.sub{color:#D4E2C2;margin:0 0 26px;font-size:15px;}
 .check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-.check{
-  display:flex;gap:13px;align-items:flex-start;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
-  border-radius:15px;padding:15px 16px;font-size:14px;line-height:1.5;
-}
+.check{ display:flex;gap:13px;align-items:flex-start; background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15); border-radius:15px;padding:15px 16px;font-size:14px;line-height:1.5; }
 .check .box{width:20px;height:20px;border-radius:6px;border:1.6px solid var(--soleil);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;}
 .check .box svg{width:12px;height:12px;stroke:var(--soleil);fill:none;}
 
-footer{
-  margin-top:64px;padding:34px 0 70px;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-  font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-soft);
-}
+footer{ margin-top:64px;padding:34px 0 70px;border-top:1px solid var(--line); display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px; font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-soft); }
 footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;color:var(--lavande-dp);}
 
-/* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.in{opacity:1;transform:none;}
 
-/* ---------------- RESPONSIVE ---------------- */
+/* RESPONSIVE */
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:26px;}
   .regles{grid-template-columns:repeat(2,1fr);}
@@ -314,11 +193,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
 @media (max-width:680px){
   .nav-brand span.long{display:none;}
   .day{grid-template-columns:1fr;}
-  .day-aside{
-    flex-direction:row;align-items:center;gap:16px;flex-wrap:wrap;
-    border-right:none;border-bottom:1px solid var(--line);
-    background:linear-gradient(92deg,var(--lavande-lt),#fff);
-  }
+  .day-aside{ flex-direction:row;align-items:center;gap:16px;flex-wrap:wrap; border-right:none;border-bottom:1px solid var(--line); background:linear-gradient(92deg,var(--lavande-lt),#fff); }
   .day-aside .num{font-size:44px;margin:0;}
   .day-aside .titre{width:100%;order:5;margin-top:4px;}
   .dodo{margin-top:0;margin-left:auto;padding-top:0;}
@@ -358,7 +233,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <div>
       <span class="eyebrow">Drôme &amp; Ardèche · 8 jours en famille</span>
       <h1>Deux bases,<br>deux <em>amours</em> en bas âge,<br>et des siestes <span class="sun">non&nbsp;négociables.</span></h1>
-      <p class="lede">Du 23 au 30 août, on explore la Drôme et l'Ardèche avec les petits (6 mois &amp; 2 ans et demi), au rythme d'une seule règle du jeu : matinées fraîches, siestes sacrées, on mange vrai — et dodo à 20 h. Sauf quelques fois, les jours de grande sortie. On ne va pas se mentir.</p>
+      <p class="lede">Du 23 au 30 août, on explore la Drôme et l'Ardèche avec les petits (6 mois &amp; 2 ans et demi), au rythme de quelques règles simples : matinées fraîches, siestes sacrées, et dodo à 20 h. Sauf quelques exceptions assumées les jours de grande sortie.</p>
       <div class="meta">
         <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Dim 23 → Dim 30 août</span>
         <span class="pill"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg>4 à table, 2 en poussette</span>
@@ -406,7 +281,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <div class="rythme-card reveal">
       <span class="eyebrow">La colonne vertébrale du séjour</span>
       <h2 class="serif" style="margin-top:10px;">Une journée, toujours la même courbe</h2>
-      <p class="sub">Tout le voyage se plie à ce dessin : on sort tôt tant qu'il fait frais, on déjeune bon, la sieste est intouchable, une sortie douce l'après-midi, un dîner très en avance — et le soleil se couche pile au moment du dodo.</p>
+      <p class="sub">Tout le voyage se plie à ce dessin : on sort tôt tant qu'il fait frais, on déjeune à l'heure, la sieste est intouchable, une sortie douce l'après-midi, un dîner très en avance — et le soleil se couche pile au moment du dodo.</p>
       <svg class="arc-svg" viewBox="0 0 940 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="La courbe d'une journée type, du lever au coucher">
         <defs>
           <linearGradient id="arcgrad" x1="0" y1="0" x2="1" y2="0">
@@ -429,7 +304,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <!-- Midi -->
           <circle cx="345" cy="47" r="6" fill="#E7A233"/>
           <text x="345" y="176" fill="#221B33" font-weight="500">12 h 00</text>
-          <text x="345" y="192" fill="#6B6284">Déjeuner vrai</text>
+          <text x="345" y="192" fill="#6B6284">Déjeuner</text>
           <!-- Sieste -->
           <circle cx="540" cy="47" r="6" fill="#7F9155"/>
           <text x="540" y="176" fill="#221B33" font-weight="500">12 h 30 / 13 h</text>
@@ -451,25 +326,19 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
         <span class="n">01</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
         <b>Matinées fraîches</b>
-        <p>Les visites avant midi, tant que le thermomètre reste doux.</p>
+        <p>Les visites avant midi, tant que le thermomètre reste doux et que les petits sont en pleine forme.</p>
       </div>
       <div class="regle reveal">
         <span class="n">02</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-8 4-11 8-11s6 3 8 11M12 9V3"/></svg></div>
         <b>Sieste sacrée</b>
-        <p>Rien ne se planifie entre 12 h 30 et 15 h — sauf si elle se fait au fil d'une balade.</p>
+        <p>Rien ne se planifie entre 12 h 30 et 15 h — sauf si elle se fait au fil d'un déplacement.</p>
       </div>
       <div class="regle reveal">
         <span class="n">03</span>
-        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
-        <b>Manger vrai</b>
-        <p>Local, de saison, fait maison. Le moins transformé possible.</p>
-      </div>
-      <div class="regle reveal">
-        <span class="n">04</span>
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></div>
         <b>Dodo à 20 h</b>
-        <p>Une religion familiale, avec quelques entorses assumées les jours de grande sortie.</p>
+        <p>Une religion familiale, avec quelques entorses assumées les jours de très grande sortie.</p>
       </div>
     </div>
   </section>
@@ -519,14 +388,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
-              <h4>Pique-nique ou halte gourmande</h4>
-              <div class="lieu">Sur la route, selon l'avancée</div>
-              <p>Un déjeuner simple sur une aire ombragée ou chez un producteur de bord de route.</p>
+              <h4>Halte sur la route</h4>
+              <p>Un déjeuner simple pour couper le trajet, sans grandes ambitions gastronomiques.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Nos options en route :</b>
                 <ul>
-                   <li><b>L'Auberge de la Valloire</b> (sortie autoroute) — simple et convivial.</li>
-                   <li><b>La Guinguette du Rhône</b> — pour une pause fraîcheur au bord de l'eau.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Auberge+de+la+Valloire" target="_blank">L'Auberge de la Valloire</a> — Pratique car proche de l'autoroute, mais le cadre manque de charme et le service est parfois un peu trop expéditif.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Guinguette+du+Rhône" target="_blank">La Guinguette du Rhône</a> — Cadre sympa au bord de l'eau, mais la friture est inégale et on paie clairement l'emplacement.</li>
                 </ul>
               </div>
             </div>
@@ -540,7 +408,6 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <h4>Sieste en voiture (jusqu'à 15 h)</h4>
               <div class="lieu">Vers Charmes-sur-Rhône</div>
               <p>Les petits dorment pendant que la route défile : la sieste sacrée voyage avec nous aujourd'hui.</p>
-              <div class="tags"><span class="tag note"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>sieste mobile</span></div>
             </div>
           </div>
         </div>
@@ -550,7 +417,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
             <div class="m-txt">
               <h4>Premiers pas à Charmes-sur-Rhône</h4>
-              <p>Le temps de se dégourdir les jambes avant le check-in : balade dans le vieux village.</p>
+              <p>Le temps de se dégourdir les jambes avant le check-in : petite balade dans le vieux village.</p>
             </div>
           </div>
         </div>
@@ -561,13 +428,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Check-in &amp; dîner tranquille</h4>
               <div class="lieu">Charmes-sur-Rhône</div>
-              <p>Installation à 18 h pile, puis un dîner simple pris sur place pour ranger les valises.</p>
+              <p>Installation à 18 h pile, puis on se restaure simplement à proximité.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Où dîner autour du gîte :</b>
                 <ul>
-                   <li><b>Le Carré d'Aleth</b> (Charmes) — belle carte locale.</li>
-                   <li><b>L'Auberge de la Tour</b> (Soyons) — à 10 min.</li>
-                   <li><b>Pizzeria Chez Dume</b> — pour de très bonnes pizzas à emporter au gîte.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Beau+Rivage+Charmes-sur-Rhône" target="_blank">Restaurant Beau Rivage</a> — Institution locale avec belle terrasse sur le Rhône. Revers de la médaille : la carte est très classique, limite figée dans le temps.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Chez+Dume+Charmes-sur-Rhône" target="_blank">Pizzeria Chez Dume</a> — Pizzas correctes pour dépanner au gîte, bien que la garniture pourrait parfois être plus généreuse.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Grappe+d'Or+Soyons" target="_blank">La Grappe d'Or (Soyons)</a> — Cuisine familiale sans prétention, à 10 min. La déco est un peu datée mais ça fait le travail.</li>
                 </ul>
               </div>
             </div>
@@ -617,14 +484,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
               <h4>Déjeuner à Lamastre</h4>
-              <div class="lieu">Lamastre</div>
               <p>Arrivée en gare vers 11h30, l'heure parfaite pour déjeuner tôt avant la sieste.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Nos recommandations à Lamastre :</b>
+                <b class="rb-title">🍽️ Manger à Lamastre :</b>
                 <ul>
-                   <li><b>Restaurant de la Gare</b> — très pratique à la descente du Mastrou.</li>
-                   <li><b>La Mère Balle</b> — bistrot de pays, cuisine simple et généreuse.</li>
-                   <li><b>Le Châtaignier</b> — spécialités ardéchoises.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+de+la+Gare+Lamastre" target="_blank">Restaurant de la Gare</a> — Idéalement situé à la descente du train. La rançon du succès : c'est très bruyant et le service est parfois débordé.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Mère+Balle+Lamastre" target="_blank">La Mère Balle</a> — Bistrot volontaire mais l'assiette manque ponctuellement de finesse.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Châtaignier+Lamastre" target="_blank">Le Châtaignier</a> — Spécialités ardéchoises très copieuses, presque trop lourdes pour un midi d'été.</li>
                 </ul>
               </div>
             </div>
@@ -637,7 +503,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste douce, puis train du retour (15h)</h4>
               <div class="lieu">Lamastre → Tournon</div>
-              <p>De 13h à 15h, sieste en poussette à l'ombre dans le village, puis on embarque à 15h pour le retour en train (où les petits finiront bercés).</p>
+              <p>De 13h à 15h, sieste en poussette à l'ombre dans le village, puis on embarque à 15h pour le retour en train.</p>
             </div>
           </div>
         </div>
@@ -647,12 +513,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
               <h4>Retour, dîner léger</h4>
-              <p>On rentre tranquillement pour un dîner à la maison et un coucher presque normal.</p>
+              <p>On rentre tranquillement pour un dîner à la maison.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Envie d'une table à Tournon avant de rentrer ?</b>
                 <ul>
-                   <li><b>Le Chaudron</b> (Tournon) — très bonne adresse.</li>
-                   <li><b>Le Farfadet</b> (Tournon) — crêperie si les enfants veulent du réconfort.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Chaudron+Tournon-sur-Rhône" target="_blank">Le Chaudron</a> — Bonne réputation locale, mais les tables sont un peu tassées et l'addition grimpe très vite.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Farfadet+Tournon-sur-Rhône" target="_blank">Le Farfadet</a> — Crêperie honnête. La pâte est bonne, le cidre reste en revanche assez basique.</li>
                 </ul>
               </div>
             </div>
@@ -695,9 +561,8 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Comment gérer le repas :</b>
                 <ul>
-                   <li><b>Snack / Restauration du Safari</b> — pratique pour ne pas perdre de temps.</li>
-                   <li><b>Auberge du Lac</b> (Peaugres) — à l'extérieur si on a besoin de calme.</li>
-                   <li><b>Boulangerie de Peaugres</b> — y passer le matin pour se faire un super pique-nique sous les arbres du parc.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Safari+de+Peaugres+Restauration" target="_blank">Snacks du Safari</a> — Restauration captive typique : cher pour ce que c'est et plutôt industriel, mais imbattable sur le côté pratique avec des petits.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Auberge+du+Lac+Peaugres" target="_blank">Auberge du Lac</a> — Cadre apaisant à l'extérieur du parc, bien que le service soit parfois un peu guindé pour une tablée avec de jeunes enfants.</li>
                 </ul>
               </div>
             </div>
@@ -710,7 +575,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste (jusqu'à 15h), puis circuit à pied</h4>
               <div class="lieu">Safari de Peaugres</div>
-              <p>La sieste se fait dans la poussette (ou porte-bébé) à l'ombre. Ensuite, découverte à pied du tunnel de verre (fauves) et de l'espace des singes.</p>
+              <p>La sieste se fait dans la poussette (ou porte-bébé) à l'ombre. Ensuite, découverte à pied du tunnel de verre (fauves) et des singes.</p>
             </div>
           </div>
         </div>
@@ -724,8 +589,8 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Bonnes adresses au retour :</b>
                 <ul>
-                   <li><b>Restaurant Le Terminus</b> (Cruas) — cuisine régionale travaillée.</li>
-                   <li><b>L'Olivier</b> (Saint-Georges-les-Bains) — sur le trajet.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Le+Terminus+Cruas" target="_blank">Le Terminus (Cruas)</a> — Cuisine régionale sérieuse, mais la proximité de la route gâche un peu la tranquillité de la terrasse.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Olivier+Saint-Georges-les-Bains" target="_blank">L'Olivier (Saint-Georges-les-Bains)</a> — Bon compromis qualité/prix, même si les desserts sont souvent en deçà des plats principaux.</li>
                 </ul>
               </div>
             </div>
@@ -743,10 +608,10 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <h2 class="serif">Des bonbons aux profondeurs — cap au sud</h2>
     <p>Check-out du premier gîte, une entorse sucrée bien méritée, un déjeuner paysan, puis la route qui devient la sieste. On descend vers Lapalud et on boucle la journée dans une spectaculaire forêt de dinosaures à l'Aven de Marzal.</p>
     <div class="stops">
-      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l7-7 7 7v9H5z"/><path d="M9 20v-6h6v6"/></svg>Check-out gîtes de Mirabel</span>
-      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 4 4 .5-3 3 .8 4.2L12 12l-3.8 2.7L9 10.5l-3-3 4-.5z"/></svg>Palais des Bonbons, Montélimar</span>
+      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l7-7 7 7v9H5z"/><path d="M9 20v-6h6v6"/></svg>Check-out Gîtes de Mirabel</span>
+      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 4 4 .5-3 3 .8 4.2L12 12l-3.8 2.7L9 10.5l-3-3 4-.5z"/></svg>Palais des Bonbons</span>
       <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5"/></svg>Déjeuner paysan</span>
-      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"/></svg>Sieste en voiture → Lapalud</span>
+      <span><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"/></svg>Sieste auto → Lapalud</span>
     </div>
   </div>
 
@@ -784,9 +649,9 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Tables montiliennes :</b>
                 <ul>
-                   <li><b>Le Bistrot des Paysans</b> — viandes et légumes tracés en direct de la coopérative.</li>
-                   <li><b>La Table de Margot</b> — plats familiaux de qualité.</li>
-                   <li><b>Le Petit Véran</b> — excellente adresse pour des produits frais.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Bistrot+des+Paysans+Montélimar" target="_blank">Le Bistrot des Paysans</a> — Concept sympa de la ferme à l'assiette, par contre la salle fait parfois un peu "cantine" et le volume sonore monte vite.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+de+Margot+Montélimar" target="_blank">La Table de Margot</a> — Portions généreuses, mais l'attente peut devenir longue avec des tout-petits impatients.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Petit+Véran+Montélimar" target="_blank">Le Petit Véran</a> — Produits très frais et carte courte, dommage que l'accueil soit ponctuellement un peu froid.</li>
                 </ul>
               </div>
             </div>
@@ -797,9 +662,9 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-4l2-5h9l4 4h2v5h-2"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste en voiture (jusqu'à 15h), installation, puis l'Aven de Marzal</h4>
+              <h4>Sieste en auto, puis l'Aven de Marzal</h4>
               <div class="lieu">La Chamade, Lapalud → Saint-Remèze</div>
-              <p>Les petits dorment bercés par la descente. On pose les valises au gîte, puis cap sur l'Aven de Marzal : sa Forêt des Dinosaures grandeur nature va passionner le grand. <em>(Note : la grotte elle-même a de nombreuses marches, privilégiez le porte-bébé ou restez sur le parc surface).</em></p>
+              <p>Les petits dorment bercés par la descente. On pose les valises au gîte, puis cap sur l'Aven de Marzal : sa Forêt des Dinosaures grandeur nature va passionner le grand. <em>(Note : la grotte elle-même a de nombreuses marches, restez plutôt sur le parc surface).</em></p>
             </div>
           </div>
         </div>
@@ -810,13 +675,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Dîner de bienvenue à Lapalud</h4>
               <div class="lieu">Autour du gîte (Lapalud)</div>
-              <p>On digère le changement de maison et on attaque l'Ardèche du sud en forme !</p>
+              <p>On digère le changement de maison et on attaque l'Ardèche du sud.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ À tester à Lapalud :</b>
                 <ul>
-                   <li><b>Le Bouchon de Lapalud</b> — chaleureux, de bons classiques.</li>
-                   <li><b>Pizzeria La Cigale</b> — parfait si on veut faire au plus simple pour le grand.</li>
-                   <li><b>La Table de Marie</b> — cuisine soignée et jolie terrasse.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Bouchon+de+Lapalud" target="_blank">Le Bouchon de Lapalud</a> — Classiques bien exécutés, l'atmosphère y est en revanche assez bruyante.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+La+Cigale+Lapalud" target="_blank">Pizzeria La Cigale</a> — Pratique, mais la pâte à pizza manque parfois d'un peu de cuisson au centre.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+de+Marie+Lapalud" target="_blank">La Table de Marie</a> — Jolie petite cour et assiettes soignées, même si les prix s'emballent un peu le soir.</li>
                 </ul>
               </div>
             </div>
@@ -851,7 +716,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="date">27 août</div>
         </div>
         <div class="titre">Les incontournables (sans forcer)</div>
-        <div class="dodo exc"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 45<small>la fameuse exception</small></div>
+        <div class="dodo exc"><span class="moon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg></span>20 h 45<small>l'exception du séjour</small></div>
       </div>
       <div class="day-main">
         <div class="moment">
@@ -875,9 +740,9 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Belles tables du coin :</b>
                 <ul>
-                   <li><b>La Maison du Goût</b> (Pierrelatte) — épicerie fine, planches artisans (sans nitrites).</li>
-                   <li><b>Le 17</b> — cuisine moderne et belle présentation.</li>
-                   <li><b>La Brasserie du Cours</b> — valeur sûre et efficace avec les enfants.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Maison+du+Goût+Pierrelatte" target="_blank">La Maison du Goût</a> — Bons produits de terroir, idéal sur le pouce. Mais les assises (tabourets hauts) ne sont pas idéales avec un bébé, et le service est parfois expéditif.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Le+17+Pierrelatte" target="_blank">Le 17</a> — Cuisine moderne très bien dressée, dommage que les portions soient un peu chiches pour les gros appétits.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Brasserie+du+Cours+Pierrelatte" target="_blank">La Brasserie du Cours</a> — Efficace et rapide, le bruit de la circulation proche est le seul vrai bémol.</li>
                 </ul>
               </div>
             </div>
@@ -888,10 +753,10 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-8 4-11 8-11s6 3 8 11"/><path d="M9 9c0-2 1-3 3-3s3 1 3 3"/></svg></div>
             <div class="m-txt">
-              <h4>Sieste (12h30-15h), puis Barque sous le Pont d'Arc</h4>
-              <div class="lieu">Vallon-Pont-d'Arc · ~50 min</div>
-              <p>On laisse tomber la Grotte Chauvet pour éviter l'ennui des enfants. À la place : émerveillement sans effort avec <b>Les Bateliers de l'Ardèche</b> ! Une douce descente en barque guidée. Bébé est bercé par l'eau, le grand admire les falaises (et les canards), avec un passage grandiose sous le célèbre pont.</p>
-              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>zéro effort de marche</span></div>
+              <h4>Sieste, puis La Forêt des Jeux</h4>
+              <div class="lieu">Saint-Remèze</div>
+              <p>Beaucoup plus adapté qu'une barque en plein cagnard ou que les contraintes d'une grotte profonde. C'est une forêt de chênes hyper dense, remplie de jeux en bois géants. Zéro coup de chaud, on flâne à son rythme et c'est parfaitement pensé pour l'âge du plus grand.</p>
+              <div class="tags"><span class="tag cool"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg>zéro effort et très ombragé</span></div>
             </div>
           </div>
         </div>
@@ -900,14 +765,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3-9h10l3 9M8 11V7a4 4 0 018 0v4"/></svg></div>
             <div class="m-txt">
-              <h4>Dîner à Vallon-Pont-d'Arc</h4>
-              <p>On mange sur place, pour compenser les 50 minutes de retour au gîte ensuite.</p>
+              <h4>Dîner proche du plateau</h4>
+              <p>Puisqu'on est à Saint-Remèze, on reste dans le secteur avant de redescendre vers Lapalud.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Nos recommandations à Vallon :</b>
+                <b class="rb-title">🍽️ Manger en redescendant :</b>
                 <ul>
-                   <li><b>Le Jardin des Secrets</b> — cuissons douces, cour intérieure paisible.</li>
-                   <li><b>Le Belvédère</b> — vue imprenable sur les gorges si on s'éloigne un peu.</li>
-                   <li><b>L'Espéluègne</b> — une table traditionnelle et savoureuse.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Clos+des+Oliviers+Saint-Remèze" target="_blank">Le Clos des Oliviers (Saint-Remèze)</a> — Des plats locaux très corrects, bien que le service soit ponctuellement dépassé par l'affluence du mois d'août.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Auberge+de+Tourne+Bourg-Saint-Andéol" target="_blank">L'Auberge de Tourne (Bourg-St-Andéol)</a> — Terrasse extrêmement agréable en contrebas de la source, dommage que le contenu de l'assiette manque parfois d'un peu de caractère.</li>
                 </ul>
               </div>
             </div>
@@ -950,9 +814,9 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
               <div class="resto-box">
                 <b class="rb-title">🍽️ Manger dans les parages :</b>
                 <ul>
-                   <li><b>Le Pré du Moulin</b> (Sérignan) — excellente table avec patio bucolique.</li>
-                   <li><b>Le Café des Vignes</b> (Suze-la-Rousse) — très bonne brasserie pour enchaîner sur le château l'après-midi.</li>
-                   <li><b>La Table d'Anis</b> (Bollène) — cuisine généreuse et maîtrisée.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Pré+du+Moulin+Sérignan-du-Comtat" target="_blank">Le Pré du Moulin (Sérignan)</a> — Très beau patio et assiettes fines, mais l'accueil peut être un peu sec si les enfants font du bruit.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Café+des+Vignes+Suze-la-Rousse" target="_blank">Le Café des Vignes (Suze)</a> — Brasserie vivante et pratique avant le château, bien que le mobilier soit franchement usé.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Table+d'Anis+Bollène" target="_blank">La Table d'Anis (Bollène)</a> — Très généreux, avec le risque que les plats finissent par être un peu trop riches.</li>
                 </ul>
               </div>
             </div>
@@ -965,7 +829,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste (jusqu'à 15h) &amp; Château de Suze-la-Rousse</h4>
               <div class="lieu">Suze-la-Rousse</div>
-              <p>Puisque les Dinosaures ont été vus à l'Aven de Marzal, on remplace l'après-midi par une promenade royale ! Après la sieste, exploration de l'immense parc boisé du Château de Suze-la-Rousse (La Garenne), idéal et très ombragé pour les enfants, surplombé par la forteresse.</p>
+              <p>Après la sieste, exploration de l'immense parc boisé du Château de Suze-la-Rousse (La Garenne). C'est très vaste, idéal pour courir à l'ombre de très grands arbres, avec la forteresse majestueuse au-dessus.</p>
             </div>
           </div>
         </div>
@@ -974,13 +838,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
           <div class="moment-body">
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M6 19V9l6-5 6 5v10M10 19v-6h4v6"/></svg></div>
             <div class="m-txt">
-              <h4>Retour au calme (Lapalud)</h4>
-              <div class="lieu">Au gîte</div>
+              <h4>Retour au calme</h4>
+              <div class="lieu">Au gîte (Lapalud)</div>
               <p>Soirée paisible. Si vous n'avez pas envie de cuisiner :</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Ultime option proche :</b>
                 <ul>
-                   <li><b>Le Relais du Pont d'Arc</b> (Bollène) — ou des pizzas à emporter sur Lapalud pour faire simple.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Relais+du+Pont+d'Arc+Bollène" target="_blank">Le Relais du Pont d'Arc (Bollène)</a> — Cuisine ménagère copieuse, ambiance routier assumée, faut aimer le style de la salle.</li>
                 </ul>
               </div>
             </div>
@@ -1009,7 +873,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Exploration du Château de Grignan</h4>
               <div class="lieu">Grignan · ~30 min</div>
-              <p>On oublie les miniatures et on passe au vrai château de Madame de Sévigné ! De vastes cours intérieures hyper sécurisées, des terrasses vertigineuses (bien grillagées) et des ruelles piétonnes magnifiques. Parfait pour défouler un 2 ans et demi le matin.</p>
+              <p>On oublie les miniatures et on passe au vrai château de Madame de Sévigné ! De vastes cours intérieures hyper sécurisées, des terrasses vertigineuses et des ruelles piétonnes magnifiques. Parfait pour défouler un 2 ans et demi le matin.</p>
             </div>
           </div>
         </div>
@@ -1019,13 +883,13 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-ic"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M9 3v8M5 3v6a2 2 0 002 2M17 3c-1.5 0-2.5 2-2.5 5s1 5 2.5 5M7 11v10M17 13v8"/></svg></div>
             <div class="m-txt">
               <h4>Déjeuner autour de Grignan</h4>
-              <p>Il y a d'excellentes tables qui subliment les produits du marché, juste en bas du château.</p>
+              <p>Il y a d'excellentes tables qui subliment les produits, juste en bas du château.</p>
               <div class="resto-box">
                 <b class="rb-title">🍽️ Belles tables à Grignan :</b>
                 <ul>
-                   <li><b>L'Eau à la Bouche</b> — cuisine 100% marché, authentique.</li>
-                   <li><b>Le Poème</b> — belle terrasse, saveurs provençales.</li>
-                   <li><b>Le Café des Vignerons</b> — pour des plats bistrot plus rapides mais qualitatifs.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Eau+à+la+Bouche+Grignan" target="_blank">L'Eau à la Bouche</a> — Concept marché sympa et frais. En revanche il y a très peu de choix et c'est très vite complet.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Poème+Grignan" target="_blank">Le Poème</a> — Beau cadre typiquement provençal, la note finale est cependant un peu épicée.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=Le+Café+des+Vignerons+Grignan" target="_blank">Le Café des Vignerons</a> — Bon bistrot de village, souvent pris d'assaut, préparez-vous à attendre le service de vos plats.</li>
                 </ul>
               </div>
             </div>
@@ -1038,7 +902,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Sieste (12h30-15h), valises, beaux villages</h4>
               <div class="lieu">Aiguèze · Pont-Saint-Esprit · St-Martin</div>
-              <p>La sieste terminée (vers 15h), on range, puis on file faire le tour des plus beaux villages du coin (dont Aiguèze qui surplombe l'Ardèche).</p>
+              <p>La sieste terminée (vers 15h), on range tranquillement, puis on file faire le tour des plus beaux villages du coin (dont Aiguèze qui surplombe magnifiquement l'Ardèche).</p>
             </div>
           </div>
         </div>
@@ -1049,12 +913,12 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
             <div class="m-txt">
               <h4>Marché nocturne</h4>
               <div class="lieu">Saint-Martin-d'Ardèche · ~15 min</div>
-              <p>On arrive tôt pour dîner sur les stands (crêpes bio, fromages). Les petits picorent en marchant, sans l'attente d'un restaurant.</p>
+              <p>On arrive tôt pour dîner sur les stands (crêpes bio, fromages). Les petits picorent en marchant, sans l'attente d'un restaurant, même s'il faut toujours se méfier des stands 'attrape-touristes' qui se mêlent parfois aux vrais producteurs locaux.</p>
               <div class="resto-box">
-                <b class="rb-title">🍽️ Plan B (si les enfants veulent s'asseoir) :</b>
+                <b class="rb-title">🍽️ Plan B (si vous voulez vous asseoir) :</b>
                 <ul>
-                   <li><b>L'Escale</b> (Saint-Martin) — brasserie face à l'eau.</li>
-                   <li><b>La Guinguette de l'Ardèche</b> — ambiance très vacances.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=L'Escale+Saint-Martin-d'Ardèche" target="_blank">L'Escale</a> — Brasserie avec vue sympa sur la rivière, par contre c'est de l'abattage pur et dur en haute saison.</li>
+                   <li><a href="https://www.google.com/maps/search/?api=1&query=La+Guinguette+de+l'Ardèche+Saint-Martin-d'Ardèche" target="_blank">La Guinguette de l'Ardèche</a> — Ambiance très détendue de vacances, mais la friture y est excessivement grasse.</li>
                 </ul>
               </div>
             </div>
@@ -1076,7 +940,7 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
       <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span><b>Matin —</b> rangement et valises, sans stress</span></div>
       <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7.5" cy="18" r="1.4"/><circle cx="16.5" cy="18" r="1.4"/></svg><span><b>12 h pile —</b> départ de Lapalud</span></div>
       <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a7 7 0 100 18 9 9 0 01-9-9 9 9 0 019-9z"/></svg><span><b>Sur la route —</b> sieste intégrale (12h30-15h)</span></div>
-      <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22V12h6v10M4 9l8-6 8 6M4 9v11h4M20 9v11h-4"/></svg><span><b>Milieu d'après-midi —</b> arrivée, reposés et sans un seul plat ultra-transformé !</span></div>
+      <div class="tl"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22V12h6v10M4 9l8-6 8 6M4 9v11h4M20 9v11h-4"/></svg><span><b>Milieu d'après-midi —</b> arrivée à la maison.</span></div>
     </div>
   </div>
 </section>
@@ -1088,13 +952,11 @@ footer .fam{font-family:'Newsreader',serif;font-style:italic;font-size:15px;colo
     <h2 class="serif">À réserver, à ne pas oublier</h2>
     <p class="sub">Une fois ces cases cochées, il ne reste plus qu'à profiter.</p>
     <div class="check-grid">
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les billets des Bateliers de l'Ardèche (jeudi) à l'avance.</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver les billets du Mastrou (lundi, journée complète Tournon-Lamastre) : places limitées en août.</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prendre les billets du Safari de Peaugres en ligne (billet Futé, moins cher qu'au guichet).</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Réserver la table du soir au Jardin des Secrets (jeudi).</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Prévoir le porte-bébé (très utile pour l'Aven de Marzal et le Château de Grignan).</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Emporter de la petite monnaie pour picorer au marché nocturne de Saint-Martin-d'Ardèche.</div>
-      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Confirmer les horaires d'ouverture d'août des musées (Le Naturoptère).</div>
+      <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Confirmer les horaires d'ouverture de fin août des musées (Le Naturoptère).</div>
       <div class="check"><span class="box"><svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Accepter que lundi, mardi et jeudi, le coucher glisse un peu. La Terre continuera de tourner.</div>
     </div>
   </div>
